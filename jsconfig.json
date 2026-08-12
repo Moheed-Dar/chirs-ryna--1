@@ -1,0 +1,27 @@
+// {
+//   "compilerOptions": {
+//     "baseUrl": ".",
+//     "paths": {
+//       "@/*": ["./src/*"],
+//       "@/backend/*": ["./backend/*"]
+//     },
+//     "ignoreDeprecations": "6.0"
+//   },
+//   "include": ["src/**/*", "backend/**/*", "next-env.d.ts"],
+//   "exclude": ["node_modules", ".next"]
+// }
+
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@lib/*": ["./backend/lib/*"],
+      "@models/*": ["./backend/models/*"],
+      "@/backend/*": ["./backend/*"]
+    },
+    "ignoreDeprecations": "6.0"
+  },
+  "include": ["src/**/*", "backend/**/*", "next-env.d.ts"],
+  "exclude": ["node_modules", ".next"]
+}
