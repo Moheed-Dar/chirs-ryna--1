@@ -19,14 +19,13 @@ import {
 } from "lucide-react";
 
 // ==========================================
-// ✅ COLOR PALETTE
+// ✅ UPDATED COLOR PALETTE
 // ==========================================
-const TURQUOISE = "#20B2B8";
-const LIGHT_AQUA = "#BEEBF0";
-const DARK_PINK = "#D81B60";
-const DARK_ORANGE = "#F2673A";
-const PEACH = "#FFC8B5";
-const DARK_TEAL = "#0D1F22";
+const TEAL = "#019586";
+const DARK_TEAL = "#014D41";
+const MINT = "#B1F1E9";
+const BRIGHT_TEAL = "#04D3C7";
+const WHITE = "#FFFFFF";
 
 // ==========================================
 // ✅ SAFE IMAGE HELPER
@@ -67,16 +66,16 @@ const BlogCard = ({ blog }) => {
       <article
         className="bg-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
         style={{
-          border: "1px solid rgba(32,178,184,0.1)",
-          boxShadow: "0 2px 12px rgba(32,178,184,0.04)",
+          border: `1px solid ${MINT}80`,
+          boxShadow: `0 2px 12px ${TEAL}10`,
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = "rgba(32,178,184,0.25)";
-          e.currentTarget.style.boxShadow = "0 8px 30px rgba(32,178,184,0.12)";
+          e.currentTarget.style.borderColor = `${TEAL}`;
+          e.currentTarget.style.boxShadow = `0 8px 30px ${TEAL}25`;
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = "rgba(32,178,184,0.1)";
-          e.currentTarget.style.boxShadow = "0 2px 12px rgba(32,178,184,0.04)";
+          e.currentTarget.style.borderColor = `${MINT}80`;
+          e.currentTarget.style.boxShadow = `0 2px 12px ${TEAL}10`;
         }}
       >
         {/* Image */}
@@ -93,10 +92,10 @@ const BlogCard = ({ blog }) => {
             <div
               className="flex items-center justify-center h-full"
               style={{
-                background: `linear-gradient(to bottom right, ${LIGHT_AQUA}20, ${TURQUOISE}10)`,
+                background: `linear-gradient(to bottom right, ${MINT}, ${TEAL}20)`,
               }}
             >
-              <BookOpen className="w-12 h-12" style={{ color: `${TURQUOISE}60` }} />
+              <BookOpen className="w-12 h-12" style={{ color: `${TEAL}80` }} />
             </div>
           )}
 
@@ -104,7 +103,7 @@ const BlogCard = ({ blog }) => {
             <span
               className="absolute top-3 left-3 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide z-10"
               style={{
-                background: `linear-gradient(135deg, ${TURQUOISE}, ${DARK_ORANGE})`,
+                background: `linear-gradient(135deg, ${TEAL}, ${BRIGHT_TEAL})`,
               }}
             >
               {blog.category}
@@ -131,9 +130,9 @@ const BlogCard = ({ blog }) => {
           {/* Title */}
           <h3
             className="text-lg font-semibold text-slate-900 mb-2 line-clamp-2 transition-colors duration-200"
-            style={{ color: "#1F2D3D" }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = TURQUOISE)}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "#1F2D3D")}
+            style={{ color: DARK_TEAL }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = TEAL)}
+            onMouseLeave={(e) => (e.currentTarget.style.color = DARK_TEAL)}
           >
             {blog.title}
           </h3>
@@ -151,8 +150,8 @@ const BlogCard = ({ blog }) => {
                   key={i}
                   className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-md"
                   style={{
-                    color: TURQUOISE,
-                    backgroundColor: `${TURQUOISE}10`,
+                    color: TEAL,
+                    backgroundColor: `${MINT}`,
                   }}
                 >
                   <Tag className="w-3 h-3" />
@@ -170,7 +169,7 @@ const BlogCard = ({ blog }) => {
           {/* Read More */}
           <div
             className="flex items-center gap-1 text-sm font-medium group-hover:gap-2 transition-all duration-200"
-            style={{ color: TURQUOISE }}
+            style={{ color: TEAL }}
           >
             Read More
             <ArrowRight className="w-4 h-4" />
@@ -191,25 +190,25 @@ const CategoryButton = ({ category, count, isActive, onClick }) => (
     style={
       isActive
         ? {
-            background: `linear-gradient(135deg, ${TURQUOISE}, ${DARK_ORANGE})`,
-            color: "#ffffff",
-            boxShadow: `0 2px 8px ${TURQUOISE}30`,
+            background: `linear-gradient(135deg, ${TEAL}, ${BRIGHT_TEAL})`,
+            color: WHITE,
+            boxShadow: `0 2px 8px ${TEAL}40`,
           }
         : {
-            backgroundColor: "#ffffff",
+            backgroundColor: WHITE,
             color: "#64748b",
-            border: "1px solid #e2e8f0",
+            border: `1px solid ${MINT}`,
           }
     }
     onMouseEnter={(e) => {
       if (!isActive) {
-        e.currentTarget.style.borderColor = TURQUOISE;
-        e.currentTarget.style.color = TURQUOISE;
+        e.currentTarget.style.borderColor = TEAL;
+        e.currentTarget.style.color = TEAL;
       }
     }}
     onMouseLeave={(e) => {
       if (!isActive) {
-        e.currentTarget.style.borderColor = "#e2e8f0";
+        e.currentTarget.style.borderColor = MINT;
         e.currentTarget.style.color = "#64748b";
       }
     }}
@@ -218,7 +217,7 @@ const CategoryButton = ({ category, count, isActive, onClick }) => (
     {count > 0 && (
       <span
         className="ml-1.5 text-xs"
-        style={{ color: isActive ? "rgba(255,255,255,0.7)" : "#94a3b8" }}
+        style={{ color: isActive ? "rgba(255,255,255,0.8)" : "#94a3b8" }}
       >
         ({count})
       </span>
@@ -248,7 +247,6 @@ export default function BlogsPage() {
   const [sortBy, setSortBy] = useState("createdAt");
   const [order, setOrder] = useState("desc");
 
-  // ✅ FIX: useRef instead of useState for timeout
   const searchTimeoutRef = useRef(null);
 
   // Dynamic categories
@@ -328,7 +326,6 @@ export default function BlogsPage() {
     fetchBlogs();
   }, [fetchBlogs]);
 
-  // ✅ FIX: Cleanup timeout on unmount
   useEffect(() => {
     return () => {
       if (searchTimeoutRef.current) {
@@ -338,13 +335,12 @@ export default function BlogsPage() {
   }, []);
 
   // ==========================================
-  // ✅ SEARCH HANDLER (Debounced — FIXED)
+  // ✅ SEARCH HANDLER (Debounced)
   // ==========================================
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearch(value);
 
-    // ✅ FIX: Use ref instead of state for timeout
     if (searchTimeoutRef.current) clearTimeout(searchTimeoutRef.current);
     searchTimeoutRef.current = setTimeout(() => {
       setCurrentPage(1);
@@ -421,16 +417,16 @@ export default function BlogsPage() {
       {/* ============================== */}
       <section
         className="relative overflow-hidden"
-        style={{ background: `linear-gradient(to bottom right, ${DARK_TEAL}, #0a2a2e, ${DARK_TEAL})` }}
+        style={{ background: `linear-gradient(135deg, ${DARK_TEAL}, ${TEAL})` }}
       >
         {/* Decorative blobs */}
         <div
           className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl -mr-20 -mt-20"
-          style={{ background: `radial-gradient(circle, ${TURQUOISE}15, transparent)` }}
+          style={{ background: `radial-gradient(circle, ${BRIGHT_TEAL}40, transparent)` }}
         />
         <div
           className="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl -ml-20 -mb-20"
-          style={{ background: `radial-gradient(circle, ${PEACH}10, transparent)` }}
+          style={{ background: `radial-gradient(circle, ${MINT}30, transparent)` }}
         />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
@@ -438,9 +434,9 @@ export default function BlogsPage() {
             <span
               className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6"
               style={{
-                backgroundColor: "rgba(255,255,255,0.08)",
+                backgroundColor: `${MINT}20`,
                 backdropFilter: "blur(8px)",
-                color: LIGHT_AQUA,
+                color: MINT,
               }}
             >
               <BookOpen className="w-4 h-4" />
@@ -451,7 +447,7 @@ export default function BlogsPage() {
               Insights &{" "}
               <span
                 style={{
-                  background: `linear-gradient(to right, ${TURQUOISE}, ${PEACH})`,
+                  background: `linear-gradient(to right, ${BRIGHT_TEAL}, ${MINT})`,
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
@@ -460,13 +456,12 @@ export default function BlogsPage() {
               </span>
             </h1>
 
-            <p className="text-lg text-slate-300 leading-relaxed mb-8">
+            <p className="text-lg leading-relaxed mb-8" style={{ color: `${MINT}CC` }}>
               Stay updated with the latest trends, tips, and stories from our experts.
             </p>
 
             {/* Search */}
             <div className="relative max-w-xl mx-auto">
-              {/* ✅ FIX: Added z-10 and pointer-events-none to make icon visible above input */}
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300 z-10 pointer-events-none" />
               <input
                 type="text"
@@ -477,14 +472,14 @@ export default function BlogsPage() {
                 style={{
                   backgroundColor: "rgba(255,255,255,0.08)",
                   backdropFilter: "blur(8px)",
-                  borderColor: "rgba(255,255,255,0.15)",
+                  borderColor: `${MINT}40`,
                 }}
                 onFocus={(e) => {
-                  e.currentTarget.style.borderColor = `${TURQUOISE}80`;
-                  e.currentTarget.style.boxShadow = `0 0 0 2px ${TURQUOISE}30`;
+                  e.currentTarget.style.borderColor = `${BRIGHT_TEAL}`;
+                  e.currentTarget.style.boxShadow = `0 0 0 2px ${BRIGHT_TEAL}40`;
                 }}
                 onBlur={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
+                  e.currentTarget.style.borderColor = `${MINT}40`;
                   e.currentTarget.style.boxShadow = "none";
                 }}
               />
@@ -507,8 +502,8 @@ export default function BlogsPage() {
       <section
         className="sticky top-0 z-30 backdrop-blur-sm"
         style={{
-          backgroundColor: "rgba(248,250,252,0.85)",
-          borderBottom: `1px solid ${TURQUOISE}15`,
+          backgroundColor: `${WHITE}F2`, // Slightly transparent white
+          borderBottom: `1px solid ${MINT}`,
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -555,14 +550,14 @@ export default function BlogsPage() {
                 onChange={handleSortChange}
                 className="text-sm border rounded-lg px-3 py-1.5 bg-white text-slate-700 focus:outline-none transition-all"
                 style={{
-                  borderColor: "#e2e8f0",
+                  borderColor: `${MINT}`,
                 }}
                 onFocus={(e) => {
-                  e.currentTarget.style.borderColor = TURQUOISE;
-                  e.currentTarget.style.boxShadow = `0 0 0 2px ${TURQUOISE}30`;
+                  e.currentTarget.style.borderColor = TEAL;
+                  e.currentTarget.style.boxShadow = `0 0 0 2px ${TEAL}30`;
                 }}
                 onBlur={(e) => {
-                  e.currentTarget.style.borderColor = "#e2e8f0";
+                  e.currentTarget.style.borderColor = MINT;
                   e.currentTarget.style.boxShadow = "none";
                 }}
               >
@@ -593,14 +588,14 @@ export default function BlogsPage() {
                 {search && (
                   <>
                     {" "}for &ldquo;
-                    <span className="font-semibold" style={{ color: TURQUOISE }}>{search}</span>
+                    <span className="font-semibold" style={{ color: TEAL }}>{search}</span>
                     &rdquo;
                   </>
                 )}
                 {activeCategory && (
                   <>
                     {" "}in{" "}
-                    <span className="font-semibold" style={{ color: TURQUOISE }}>{activeCategory}</span>
+                    <span className="font-semibold" style={{ color: TEAL }}>{activeCategory}</span>
                   </>
                 )}
               </>
@@ -612,7 +607,7 @@ export default function BlogsPage() {
               onClick={clearAllFilters}
               className="text-xs text-slate-500 underline underline-offset-2 transition-colors"
               style={{ color: "#64748b" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = TURQUOISE)}
+              onMouseEnter={(e) => (e.currentTarget.style.color = TEAL)}
               onMouseLeave={(e) => (e.currentTarget.style.color = "#64748b")}
             >
               Clear all filters
@@ -625,7 +620,7 @@ export default function BlogsPage() {
           <div className="flex flex-col items-center justify-center py-20">
             <Loader2
               className="w-10 h-10 animate-spin mb-4"
-              style={{ color: TURQUOISE }}
+              style={{ color: TEAL }}
             />
             <p className="text-slate-500 text-sm">Loading blogs...</p>
           </div>
@@ -637,22 +632,22 @@ export default function BlogsPage() {
             <div
               className="border rounded-xl p-8 text-center max-w-md"
               style={{
-                backgroundColor: `${DARK_PINK}08`,
-                borderColor: `${DARK_PINK}20`,
+                backgroundColor: `${DARK_TEAL}08`,
+                borderColor: `${DARK_TEAL}20`,
               }}
             >
-              <p className="font-medium mb-2" style={{ color: DARK_PINK }}>
+              <p className="font-medium mb-2" style={{ color: DARK_TEAL }}>
                 Failed to load blogs
               </p>
-              <p className="text-sm mb-4" style={{ color: `${DARK_PINK}CC` }}>{error}</p>
+              <p className="text-sm mb-4" style={{ color: `${DARK_TEAL}CC` }}>{error}</p>
               <button
                 onClick={fetchBlogs}
                 className="px-4 py-2 text-white text-sm font-medium rounded-lg transition-colors"
                 style={{
-                  backgroundColor: DARK_PINK,
+                  backgroundColor: TEAL,
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = DARK_ORANGE)}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = DARK_PINK)}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = BRIGHT_TEAL)}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TEAL)}
               >
                 Try Again
               </button>
@@ -663,7 +658,7 @@ export default function BlogsPage() {
         {/* Empty */}
         {!loading && !error && blogs.length === 0 && (
           <div className="flex flex-col items-center justify-center py-20">
-            <BookOpen className="w-16 h-16 text-slate-300 mb-4" />
+            <BookOpen className="w-16 h-16 mb-4" style={{ color: `${TEAL}40` }} />
             <h3 className="text-xl font-semibold text-slate-700 mb-2">No blogs found</h3>
             <p className="text-slate-500 text-sm mb-6 text-center max-w-md">
               {search || activeCategory
@@ -675,7 +670,7 @@ export default function BlogsPage() {
                 onClick={clearAllFilters}
                 className="px-4 py-2 text-white text-sm font-medium rounded-lg transition-colors"
                 style={{
-                  background: `linear-gradient(135deg, ${TURQUOISE}, ${DARK_ORANGE})`,
+                  background: `linear-gradient(135deg, ${TEAL}, ${BRIGHT_TEAL})`,
                 }}
               >
                 Clear Filters
@@ -703,9 +698,9 @@ export default function BlogsPage() {
               style={
                 hasPrevPage
                   ? {
-                      backgroundColor: "#ffffff",
-                      border: "1px solid #e2e8f0",
-                      color: "#334155",
+                      backgroundColor: WHITE,
+                      border: `1px solid ${MINT}`,
+                      color: DARK_TEAL,
                     }
                   : {
                       backgroundColor: "#f1f5f9",
@@ -726,14 +721,14 @@ export default function BlogsPage() {
                   style={
                     page === currentPage
                       ? {
-                          background: `linear-gradient(135deg, ${TURQUOISE}, ${DARK_ORANGE})`,
-                          color: "#ffffff",
-                          boxShadow: `0 2px 8px ${TURQUOISE}30`,
+                          background: `linear-gradient(135deg, ${TEAL}, ${BRIGHT_TEAL})`,
+                          color: WHITE,
+                          boxShadow: `0 2px 8px ${TEAL}40`,
                         }
                       : {
-                          backgroundColor: "#ffffff",
-                          border: "1px solid #e2e8f0",
-                          color: "#334155",
+                          backgroundColor: WHITE,
+                          border: `1px solid ${MINT}`,
+                          color: DARK_TEAL,
                         }
                   }
                 >
@@ -749,9 +744,9 @@ export default function BlogsPage() {
               style={
                 hasNextPage
                   ? {
-                      backgroundColor: "#ffffff",
-                      border: "1px solid #e2e8f0",
-                      color: "#334155",
+                      backgroundColor: WHITE,
+                      border: `1px solid ${MINT}`,
+                      color: DARK_TEAL,
                     }
                   : {
                       backgroundColor: "#f1f5f9",

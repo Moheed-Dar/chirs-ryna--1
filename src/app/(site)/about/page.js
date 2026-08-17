@@ -8,27 +8,20 @@ import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const InstagramIcon = ({ size = 20 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-  </svg>
-);
+// ============================================
+// SAME 3-COLOR SCHEME AS HERO SECTION
+// ============================================
+const TEAL = "#019586";
+const GREEN = "#00B777";
+const MINT = "#B1F1E9";
+const DARK = "#072A26";
 
-const FacebookIcon = ({ size = 20 }) => (
+// ============================================
+// SOCIAL ICONS - Only LinkedIn
+// ============================================
+const LinkedInIcon = ({ size = 20 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-  </svg>
-);
-
-const YoutubeIcon = ({ size = 20 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-  </svg>
-);
-
-const PinterestIcon = ({ size = 20 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
   </svg>
 );
 
@@ -39,36 +32,19 @@ export default function About() {
   const bioRef = useRef(null);
 
   const images = [
-    { src: "/images/about4up.png", alt: "Ottawa Real Estate 1" },
-    { src: "/images/about1up.jpg", alt: "Ottawa Real Estate 2" },
-    { src: "/images/about3up.jpg", alt: "Ottawa Real Estate 3" },
-    { src: "/images/about2up.jpg", alt: "Ottawa Real Estate 4" },
+    { src: "/images/about5up.jpg", alt: "Northern Virginia Real Estate 1" },
+    { src: "/images/about1up.jpg", alt: "Northern Virginia Real Estate 2" },
+    { src: "/images/about3up.jpg", alt: "Northern Virginia Real Estate 3" },
+    { src: "/images/about2up.jpg", alt: "Northern Virginia Real Estate 4" },
   ];
 
+  // Only LinkedIn social link
   const socialLinks = [
     {
-      icon: FacebookIcon,
-      href: " https://www.facebook.com/Christopher RyanConsultantrealtor/",
-      label: "Facebook",
-      color: "#208288",
-    },
-    {
-      icon: InstagramIcon,
-      href: " https://www.instagram.com/Christopher RyanConsultantrealtor/",
-      label: "Instagram",
-      color: "#DB1860",
-    },
-    {
-      icon: YoutubeIcon,
-      href: "https://www.youtube.com/@Christopher RyanConsultant",
-      label: "YouTube",
-      color: "#F2673A",
-    },
-    {
-      icon: PinterestIcon,
-      href: "https://www.pinterest.com/Christopher Ryan_Consultant/",
-      label: "Pinterest",
-      color: "#9D2C77",
+      icon: LinkedInIcon,
+      href: "https://www.linkedin.com/in/christopher-lepkowski/",
+      label: "LinkedIn",
+      hoverColor: TEAL,
     },
   ];
 
@@ -135,21 +111,48 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden py-20 sm:py-28 lg:py-32"
+      className="relative w-full overflow-hidden py-16 sm:py-24 md:py-28 lg:py-32"
     >
-      {/* ===== BACKGROUND: Navy → Turquoise → Aqua → Cream → Peach ===== */}
+      {/* ===== BACKGROUND: BOTTOM TO TOP GRADIENT ===== */}
       <div className="absolute inset-0 z-0">
         <div
           className="absolute inset-0"
           style={{
-            background:
-              "linear-gradient(180deg, #1F203D 0%, #208288 30%, #BEEBF0 55%, #FFF7F0 75%, #FCB855 100%)",
+            background: `linear-gradient(0deg, ${TEAL} 0%, ${GREEN} 25%, ${MINT} 60%, ${MINT} 100%)`,
           }}
         />
+
+        {/* ===== WATERMARK: navbarlogo11.png (PROPERLY VISIBLE) ===== */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BEEBF0' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url('/images/navbarlogo1.png')`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center center",
+            backgroundSize: "50% auto",
+            opacity: 0.15,
+            mixBlendMode: "multiply",
+          }}
+        />
+
+        {/* Mobile pe watermark chhota */}
+        <div
+          className="absolute inset-0 pointer-events-none sm:hidden"
+          style={{
+            backgroundImage: `url('/images/navbarlogo1.png')`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center center",
+            backgroundSize: "75% auto",
+            opacity: 0.12,
+            mixBlendMode: "multiply",
+          }}
+        />
+
+        {/* Extra gradient overlay for depth */}
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            background: `radial-gradient(circle at 20% 80%, ${DARK} 0%, transparent 50%)`,
           }}
         />
       </div>
@@ -161,26 +164,53 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-4"
+          className="text-center mb-6 sm:mb-8"
         >
-          <span className="text-xs sm:text-sm text-[#BEEBF0]/80 uppercase tracking-[0.3em] font-medium">
-            Who I Am
+          <span
+            className="inline-block rounded-full px-5 py-1.5 text-[10px] sm:text-xs uppercase tracking-[0.3em] font-extrabold shadow-md"
+            style={{
+              backgroundColor: DARK,
+              color: MINT,
+            }}
+          >
+            ( Who I Am )
           </span>
         </motion.div>
 
         {/* Main Heading */}
-        <div ref={headingRef} className="text-center mb-16 sm:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-[#BEEBF0]/90 leading-tight max-w-4xl mx-auto">
-            Helping you embrace your next chapter with honest advice, local
-            expertise, and a real estate experience that's thoughtful,
-            personalized, and stress-free.
+        <div ref={headingRef} className="text-center mb-12 sm:mb-16 md:mb-20">
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight max-w-4xl mx-auto tracking-[-0.02em]"
+            style={{ color: DARK }}
+          >
+            Providing high-level{" "}
+            <span className="relative inline-block" style={{ color: DARK }}>
+              real estate consulting
+              <svg
+                className="absolute -bottom-1 left-0 w-full"
+                height="8"
+                viewBox="0 0 200 8"
+                fill="none"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M2 6C50 2 150 2 198 6"
+                  stroke={GREEN}
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  opacity="0.7"
+                />
+              </svg>
+            </span>
+            , with a focus on data-driven insights, personalized service, and a{" "}
+            <span style={{ color: TEAL }}>smooth, stress-free transaction experience.</span>
           </h2>
         </div>
 
         {/* Image Grid */}
         <div
           ref={imagesRef}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-20 sm:mb-28"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16 md:mb-20"
         >
           {images.map((img, index) => (
             <motion.div
@@ -210,24 +240,42 @@ export default function About() {
                 transition: { duration: 0.4, ease: "easeOut" },
               }}
             >
-              <div className="bg-[#FFF7F0] p-3 sm:p-4 rounded-2xl shadow-lg group-hover:shadow-2xl transition-shadow duration-500">
+              <div
+                className="p-2 sm:p-3 rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-500"
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  border: `2px solid ${TEAL}30`,
+                }}
+              >
                 <div className="relative aspect-4/3 rounded-xl overflow-hidden">
                   <Image
                     src={img.src}
                     alt={img.alt}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, 25vw"
                   />
-                  <div className="absolute inset-0 bg-[#208288]/0 group-hover:bg-[#208288]/20 transition-all duration-500" />
-                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-linear-to-t from-[#1F203D]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-all duration-500"
+                    style={{ backgroundColor: TEAL }}
+                  />
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-1/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{
+                      background: `linear-gradient(to top, ${DARK}40, transparent)`,
+                    }}
+                  />
                 </div>
-                <div className="mt-3 text-center">
-                  <div className="w-8 h-1 bg-[#BEEBF0] rounded-full mx-auto group-hover:bg-[#208288]/40 transition-colors duration-500" />
+                <div className="mt-2 sm:mt-3 text-center">
+                  <div
+                    className="w-8 sm:w-10 h-1 rounded-full mx-auto transition-colors duration-500"
+                    style={{ backgroundColor: TEAL }}
+                  />
                 </div>
               </div>
               <motion.div
-                className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#F2673A]/30 group-hover:bg-[#F2673A]/60 transition-colors duration-300"
+                className="absolute -top-1.5 sm:-top-2 left-1/2 -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full group-hover:scale-125 transition-all duration-300"
+                style={{ backgroundColor: `${GREEN}60` }}
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
@@ -244,39 +292,48 @@ export default function About() {
         {/* Bio Section */}
         <div
           ref={bioRef}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center"
         >
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            className="order-2 lg:order-1"
           >
-            <motion.div variants={itemVariants} className="mb-6">
-              <span className="text-xs text-[#BEEBF0]/80 uppercase tracking-[0.3em] font-medium">
-                About Me
+            <motion.div variants={itemVariants} className="mb-4 sm:mb-6">
+              <span
+                className="inline-block rounded-md px-3 py-1 text-[10px] sm:text-xs uppercase tracking-[0.3em] font-bold"
+                style={{
+                  backgroundColor: DARK,
+                  color: MINT,
+                }}
+              >
+                ( About Me )
               </span>
             </motion.div>
 
             <motion.h3
               variants={itemVariants}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F2673A] mb-8 leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 sm:mb-8 leading-tight"
+              style={{ color: "#FFFFFF" }}
             >
-              Hey, Ottawa! I&apos;m{" "}
-              <span className="relative">
-                Christopher Ryan
+              Hi, I&apos;m{" "}
+              <span className="relative inline-block">
+                <span style={{ color: MINT }}>Christopher Ryan</span>
                 <svg
-                  className="absolute -bottom-2 left-0 w-full"
+                  className="absolute -bottom-1 left-0 w-full"
                   height="8"
                   viewBox="0 0 200 8"
                   fill="none"
+                  preserveAspectRatio="none"
                 >
                   <path
                     d="M2 6C50 2 150 2 198 6"
-                    stroke="#FCB855"
+                    stroke={GREEN}
                     strokeWidth="3"
                     strokeLinecap="round"
-                    opacity="0.5"
+                    opacity="0.6"
                   />
                 </svg>
               </span>
@@ -284,139 +341,320 @@ export default function About() {
 
             <motion.div
               variants={itemVariants}
-              className="space-y-5 font-montserrat text-[#1F203D]/80 text-base sm:text-lg leading-relaxed"
+              className="space-y-4 sm:space-y-5 text-sm sm:text-base md:text-lg leading-relaxed"
+              style={{ color: "#FFFFFF" }}
             >
               <p>
-                I'm a REALTOR® who believes real estate is about so much more than buying and selling homes—it's about helping people embrace their next chapter with confidence. Whether you're downsizing, buying your first home, or simply exploring your options, I'm here to provide honest advice, local expertise, and personalized guidance every step of the way. My goal is to make your experience feel less overwhelming and a whole lot more exciting.
+                I provide real estate consulting services in the Northern Virginia Area. I offer all of my clients high-level consulting services that combine data aggregation with proprietary analytical methods while maintaining strict industry standards to ensure thorough preparation for every transaction.
               </p>
 
-              <blockquote className="border-l-4 border-[#208288]/50 pl-4 py-2 bg-[#BEEBF0]/20 rounded-r-lg italic text-[#1F203D]/90">
-                I spent much of my life starting over—moving eight times before finishing high school, born in Germany, started my early life on Prince Edward Island, and living in several small towns along the way. Those experiences taught me that home isn't just a place; it's a feeling.
+              <blockquote
+                className="border-l-4 pl-4 py-2 rounded-r-lg italic"
+                style={{
+                  borderColor: MINT,
+                  backgroundColor: `${DARK}40`,
+                  color: "#FFFFFF",
+                }}
+              >
+                "Real estate isn't just about properties — it's about people making informed decisions with confidence. My goal is to provide the strategic guidance needed to navigate today's complex market."
               </blockquote>
 
               <p>
-               For over 20 years, I worked in social/health services, helping women and families through some of the most difficult transitions of their lives. That experience taught me the importance of listening, staying calm, and helping people find hope during uncertain times.
+                My approach to real estate consulting goes beyond traditional methods. By leveraging data-driven insights and proprietary constraints, I provide my clients with a competitive edge in the Northern Virginia market. Whether you're buying or selling, I ensure you have all the information you need to make strategic decisions.
               </p>
               <p>
-                When I discovered real estate, I realized that buying and selling homes isn't really about real estate—it's about helping people navigate change, saying goodbye to one chapter while looking forward to the next.
+                I specialize in both Seller and Buyer Agent Services. For sellers, I focus on positioning your property to attract the right buyers and maximize value. For buyers, I help you navigate the market with confidence, identifying opportunities that align with your goals and budget.
               </p>
               <p>
-                Today I specialize in helping Ottawa-area downsizers and have created the Smooth Transition Method to make the downsizing process feel clear, organized, and far less overwhelming.
+                What sets me apart is my commitment to combining analytical rigor with personalized service. Every client receives a customized strategy that addresses their unique needs and circumstances.
               </p>
 
-              <p className="font-semibold text-[#208288]">
-                See you around town! <br /> Christopher Ryan
+              <p className="font-extrabold" style={{ color: MINT }}>
+                Let's work together! <br /> Christopher Ryan
               </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="mt-8 space-y-4">
-              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-[#1F203D]/70 font-medium">
+            {/* CONTACT INFO - EMAIL, PHONE & ADDRESS */}
+            <motion.div variants={itemVariants} className="mt-6 sm:mt-8">
+              <div className="flex flex-col gap-3 sm:gap-4 font-medium text-xs sm:text-sm md:text-base">
+                {/* Email - Separate Line */}
                 <a
-                  href="mailto:Christopher Ryan@Christopher RyanConsultant.ca"
-                  className="hover:text-[#208288] transition-colors flex items-center gap-2"
+                  href="mailto:chris@margenau.com"
+                  className="hover:scale-105 transition-all flex items-center gap-2 group"
+                  style={{ color: "#FFFFFF" }}
                 >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  <span
+                    className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg shrink-0 transition-colors"
+                    style={{
+                      backgroundColor: `${MINT}30`,
+                      border: `1px solid ${MINT}60`,
+                    }}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                  Christopher Ryan@Christopher RyanConsultant.ca
+                    <svg
+                      className="w-4 h-4 sm:w-5 sm:h-5"
+                      style={{ color: MINT }}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                  </span>
+                  <span className="truncate group-hover:underline" style={{ color: "#FFFFFF" }}>
+                    chris@margenau.com
+                  </span>
                 </a>
+
+                {/* Phone - Separate Line */}
                 <a
-                  href="tel:16132914323"
-                  className="hover:text-[#208288] transition-colors flex items-center gap-2"
+                  href="tel:(202) 848-4567"
+                  className="hover:scale-105 transition-all flex items-center gap-2 group"
+                  style={{ color: "#FFFFFF" }}
                 >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  <span
+                    className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg shrink-0 transition-colors"
+                    style={{
+                      backgroundColor: `${GREEN}30`,
+                      border: `1px solid ${GREEN}60`,
+                    }}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    ></path>
-                  </svg>
-                  613-291-4323
+                    <svg
+                      className="w-4 h-4 sm:w-5 sm:h-5"
+                      style={{ color: GREEN }}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      ></path>
+                    </svg>
+                  </span>
+                  <span className="group-hover:underline" style={{ color: "#FFFFFF" }}>
+                    (202) 848-4567
+                  </span>
                 </a>
+
+                {/* Address - Separate Line */}
+                <div
+                  className="flex items-center gap-2 group"
+                  style={{ color: "#FFFFFF" }}
+                >
+                  <span
+                    className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg shrink-0 transition-colors"
+                    style={{
+                      backgroundColor: `${DARK}40`,
+                      border: `1px solid ${MINT}40`,
+                    }}
+                  >
+                    <svg
+                      className="w-4 h-4 sm:w-5 sm:h-5"
+                      style={{ color: MINT }}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                  </span>
+                  <span style={{ color: "#FFFFFF" }}>
+                    20830 Gleedsville Rd. Leesburg, VA 20175
+                  </span>
+                </div>
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="mt-8">
-              <p className="text-xs text-[#9D2C77]/60 uppercase tracking-[0.2em] font-medium mb-4">
-                Connect With Me
+            <motion.div variants={itemVariants} className="mt-6 sm:mt-8">
+              <p
+                className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold mb-3 sm:mb-4"
+                style={{ color: MINT }}
+              >
+                ( Connect With Me )
               </p>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2.5 sm:gap-3">
                 {socialLinks.map((social) => (
                   <motion.a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-11 h-11 rounded-xl border border-[#BEEBF0]/50 bg-[#BEEBF0]/20 backdrop-blur-sm flex items-center justify-center text-[#1F203D]/70 transition-all duration-300"
+                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center transition-all duration-300"
+                    style={{
+                      backgroundColor: `${MINT}40`,
+                      border: `1px solid ${MINT}60`,
+                      color: "#FFFFFF",
+                    }}
                     whileHover={{
                       scale: 1.1,
                       y: -3,
-                      backgroundColor: social.color,
-                      borderColor: social.color,
-                      color: "#FFF7F0",
+                      backgroundColor: social.hoverColor,
+                      borderColor: social.hoverColor,
+                      color: "#FFFFFF",
                     }}
                     transition={{ duration: 0.2 }}
                     aria-label={social.label}
                   >
-                    <social.icon size={20} />
+                    <social.icon size={18} />
                   </motion.a>
                 ))}
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Portrait Image */}
+          {/* ===== PROFESSIONAL PORTRAIT IMAGE DESIGN ===== */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative"
+            className="relative order-1 lg:order-2"
           >
-            <div className="relative aspect-3/4 rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/shellyaboutimg.jpg"
-                alt="Christopher Ryan"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+            <div className="relative mx-auto max-w-md lg:max-w-none">
+              {/* Subtle background accent - just one large shape */}
+              <div
+                className="absolute -top-8 -right-8 sm:-top-12 sm:-right-12 w-48 h-48 sm:w-64 sm:h-64 rounded-full blur-3xl opacity-30 -z-10"
+                style={{ backgroundColor: MINT }}
               />
-              <div className="absolute inset-0 bg-linear-to-t from-[#1F203D]/30 via-transparent to-transparent" />
+
+              {/* Main Portrait Container */}
+              <div
+                className="relative aspect-3/4 rounded-2xl overflow-hidden"
+                style={{
+                  boxShadow: `
+                    0 25px 50px -12px ${DARK}80,
+                    0 10px 20px -5px ${TEAL}40
+                  `,
+                }}
+              >
+                <Image
+                  src="/images/chirsaboutpic.png"
+                  alt="Christopher Ryan"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 45vw"
+                  priority={false}
+                />
+
+                {/* Subtle color grade overlay - professional look */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: `linear-gradient(180deg, transparent 0%, transparent 50%, ${DARK}90 100%)`,
+                  }}
+                />
+
+                {/* Very subtle teal tint for brand cohesion */}
+                <div
+                  className="absolute inset-0 opacity-[0.08]"
+                  style={{
+                    background: `linear-gradient(135deg, ${TEAL} 0%, transparent 100%)`,
+                  }}
+                />
+              </div>
+
+              {/* Thin elegant border frame - slightly offset */}
+              <div
+                className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 aspect-3/4 w-full rounded-2xl -z-10"
+                style={{
+                  border: `2px solid ${TEAL}`,
+                }}
+              />
+
+              {/* NAME PLATE - Professional Magazine Style */}
+              <motion.div
+                className="absolute left-4 right-4 sm:left-6 sm:right-6 bottom-4 sm:bottom-6 rounded-xl px-4 py-3 sm:px-5 sm:py-4 backdrop-blur-md shadow-xl"
+                style={{
+                  backgroundColor: `${DARK}E6`,
+                  border: `1px solid ${MINT}40`,
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+              >
+                <p className="text-base sm:text-lg lg:text-xl font-extrabold" style={{ color: "#FFFFFF" }}>
+                  Christopher Ryan
+                </p>
+                <div className="flex items-center gap-2 mt-1">
+                  <div
+                    className="h-0.5 w-6 sm:w-8 rounded-full"
+                    style={{ backgroundColor: GREEN }}
+                  />
+                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider" style={{ color: MINT }}>
+                    Real Estate Consultant
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Top Right Badge - Realtor Since */}
+              <motion.div
+                className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 rounded-2xl shadow-xl p-3 sm:p-4"
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  boxShadow: `0 10px 30px ${DARK}40`,
+                }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+              >
+                <p className="text-xs font-bold uppercase tracking-wider" style={{ color: TEAL }}>
+                  Since
+                </p>
+                <p className="text-2xl sm:text-3xl font-extrabold leading-none mt-0.5" style={{ color: TEAL }}>
+                  2015
+                </p>
+              </motion.div>
+
+              {/* Top Right - Trusted Badge (minimal) */}
+              <motion.div
+                className="absolute top-4 right-4 sm:top-6 sm:right-6 rounded-full px-2.5 py-1 sm:px-3 sm:py-1.5 backdrop-blur-md flex items-center gap-1.5"
+                style={{
+                  backgroundColor: `${GREEN}E6`,
+                  border: `1px solid #FFFFFF60`,
+                }}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.7, duration: 0.5 }}
+              >
+                <svg
+                  className="w-3 h-3 sm:w-3.5 sm:h-3.5"
+                  fill="#FFFFFF"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+                <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider" style={{ color: "#FFFFFF" }}>
+                  Trusted
+                </span>
+              </motion.div>
+
+              {/* Small accent line at bottom */}
+              <div
+                className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-20 h-1 rounded-full -z-10"
+                style={{ backgroundColor: GREEN }}
+              />
             </div>
-
-            <motion.div
-              className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-8 bg-[#FFF7F0] rounded-2xl shadow-xl p-4 sm:p-6"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-            >
-              <p className="text-3xl sm:text-4xl font-bold text-[#208288]">
-                2015
-              </p>
-              <p className="text-xs sm:text-sm text-[#9D2C77]/60 mt-1">
-                Realtor Since
-              </p>
-            </motion.div>
-
-            <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full border-2 border-[#FCB855]/20" />
-            <div className="absolute -top-2 -right-2 w-16 h-16 rounded-full bg-[#F2673A]/5" />
           </motion.div>
         </div>
       </div>

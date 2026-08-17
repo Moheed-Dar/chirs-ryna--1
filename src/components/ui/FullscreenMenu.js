@@ -278,12 +278,12 @@ export default function FullscreenMenu({ isOpen, onClose }) {
           {/* Bottom Section */}
           <div className="border-t border-[#BEEBF0] p-4 flex items-center justify-between gap-3 bg-[#FFF7F0]">
             <a
-              href="mailto:Christopher Ryan@Christopher RyanConsultant.ca"
+              href="mailto:chris@margenau.com"
               className="flex items-center gap-2 text-gray-500 hover:text-[#208288] transition-colors"
             >
               <Mail size={15} />
               <span className="text-sm font-medium">
-                Christopher Ryan@Christopher RyanConsultant.ca
+                chris@margenau.com
               </span>
             </a>
 
@@ -469,7 +469,7 @@ export default function FullscreenMenu({ isOpen, onClose }) {
                 >
                   <Mail size={12} />
                   <span className="text-[11px] font-medium">
-                    Christopher Ryan@Christopher RyanConsultant.ca
+                    chris@margenau.com
                   </span>
                 </a>
 
