@@ -144,7 +144,7 @@ export default function Footer() {
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.035]"
           style={{
-            backgroundImage: `url('/images/navbarlogo1.png')`,
+            backgroundImage: `url('/images/logo12.png')`,
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center center",
             backgroundSize: "45% auto",
@@ -573,57 +573,38 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ===== SECTION 4: BOTTOM BAR ===== */}
+        {/* ===== SECTION 4: FOOTER LOGO & DISCLAIMER ===== */}
+        <div className="pt-8 pb-8 flex flex-col justify-center items-center gap-6 text-center max-w-5xl mx-auto">
+          <Image
+            src="/images/footlogo1.jpeg"
+            alt="Footer Logo"
+            width={200}
+            height={200}
+            className="object-contain"
+            style={{ width: "auto", height: "auto" }}
+            priority={false}
+          />
+          <p
+            className="text-[11px] leading-[1.7] sm:text-xs text-center max-w-4xl"
+            style={{ color: `${MINT}90` }}
+          >
+            © 2026 Bright MLS. All rights reserved. The data relating to real estate for sale on this website appears in part through the Bright MLS Internet Data Exchange (IDX) program, a voluntary cooperative exchange of property listing data between licensed real estate brokerage firms in which Casey Margenau Fine Homes and Estates participates, and is provided by Bright MLS through a licensing agreement.
+            <br />
+            Listings held by brokerage firms other than Casey Margenau Fine Homes and Estates are marked with the IDX icon and include the listing broker name. Information is provided for the personal, non-commercial use of consumers and may not be used for any purpose other than identifying properties of interest. Property information is deemed reliable but not guaranteed and should be independently verified. Listings may change or be withdrawn without notice and may include errors, omissions, or status updates. Bright MLS compiles listing data from multiple sources and does not guarantee accuracy, including property status or historical information. Some listings may not appear due to seller instruction, brokerage participation, or MLS reporting limitations. Equal Housing Opportunity.
+          </p>
+        </div>
+
+        {/* ===== SECTION 5: FINAL COPYRIGHT LINE (LAST) ===== */}
         <div
-          className="pt-8 pb-4 flex flex-col items-center gap-5"
+          className="pt-6 pb-4 flex flex-col items-center"
           style={{ borderTop: `1px solid ${MINT}15` }}
         >
-          <div className="group relative cursor-help text-center">
-            <p
-              className="text-xs sm:text-sm transition-colors"
-              style={{ color: `${MINT}80` }}
-            >
-              © {currentYear} Christopher Ryan. All rights reserved.
-            </p>
-
-            {/* Tooltip */}
-            <div
-              className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-[92vw] max-w-3xl p-5 rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pointer-events-none z-50"
-              style={{
-                backgroundColor: DARK,
-                border: `1px solid ${TEAL}40`,
-                boxShadow: `0 20px 50px ${DARK}`,
-              }}
-            >
-              <div
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-3 h-3 rotate-45"
-                style={{
-                  backgroundColor: DARK,
-                  borderRight: `1px solid ${TEAL}40`,
-                  borderBottom: `1px solid ${TEAL}40`,
-                }}
-              />
-              <div
-                className="text-[11px] leading-relaxed text-left space-y-2"
-                style={{ color: `${MINT}DD` }}
-              >
-                <p>
-                  Copyright {currentYear} All rights reserved. Canadian Real
-                  Estate Association assumes no responsibility for the accuracy
-                  of any information shown. The information provided herein must
-                  only be used by consumers that have a bona fide interest in
-                  the purchase, sale or lease of real estate.
-                </p>
-                <p>
-                  The trademarks REALTOR®, REALTORS®, and the REALTOR® logo are
-                  controlled by The Canadian Real Estate Association (CREA) and
-                  identify real estate professionals who are members of CREA.
-                  The trademarks MLS®, Multiple Listing Service®, and the
-                  associated logos are owned by CREA.
-                </p>
-              </div>
-            </div>
-          </div>
+          <p
+            className="text-xs sm:text-sm transition-colors text-center"
+            style={{ color: `${MINT}80` }}
+          >
+            © 2026 Christopher Ryan. All rights reserved.
+          </p>
         </div>
       </div>
 
