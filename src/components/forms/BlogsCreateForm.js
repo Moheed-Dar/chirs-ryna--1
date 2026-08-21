@@ -22,7 +22,7 @@ import {
   AlignRight,
   Highlighter,
   Palette,
-  Eraser, // ✅ Added Eraser Icon
+  Eraser,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { createBlog } from "@/lib/blogs/api";
@@ -42,11 +42,9 @@ function CustomRichTextEditor({ value, onChange }) {
   const editorRef = useRef(null);
   const savedRange = useRef(null);
 
-  // Initialize content on mount
   useEffect(() => {
     if (editorRef.current) {
       editorRef.current.innerHTML = value || "";
-      // Set default paragraph separator to div for cleaner HTML
       try {
         document.execCommand('defaultParagraphSeparator', false, 'div');
       } catch (e) {}
@@ -81,7 +79,6 @@ function CustomRichTextEditor({ value, onChange }) {
     saveSelection();
   };
 
-  // Smart Enter: If pressed on an empty line, clear formatting to prevent carry-over
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       const selection = window.getSelection();
@@ -110,18 +107,17 @@ function CustomRichTextEditor({ value, onChange }) {
   );
 
   return (
-    <div className="bg-[#1F2D3D] border border-[#FFF7F0]/[0.08] rounded-xl overflow-hidden focus-within:border-[#20B2B8]/40 focus-within:ring-2 focus-within:ring-[#20B2B8]/10 transition-all">
+    <div className="bg-[#1F2D3D] border border-[#FFF7F0]/8 rounded-xl overflow-hidden focus-within:border-[#20B2B8]/40 focus-within:ring-2 focus-within:ring-[#20B2B8]/10 transition-all">
       {/* Toolbar */}
-      <div className="flex flex-wrap items-center gap-1 p-2 border-b border-[#FFF7F0]/[0.08] bg-[#172636]">
+      <div className="flex flex-wrap items-center gap-1 p-2 border-b border-[#FFF7F0]/8 bg-[#172636]">
         
-        {/* Font Size Dropdown */}
         <select
           onMouseDown={saveSelection}
           onChange={(e) => {
             applyFormat('fontSize', e.target.value);
             e.target.value = "";
           }}
-          className="bg-[#1F2D3D] border border-[#FFF7F0]/[0.08] rounded-md px-2 py-1 text-xs text-[#FFF7F0]/70 outline-none mr-1 cursor-pointer hover:border-[#20B2B8]/40"
+          className="bg-[#1F2D3D] border border-[#FFF7F0]/8 rounded-md px-2 py-1 text-xs text-[#FFF7F0]/70 outline-none mr-1 cursor-pointer hover:border-[#20B2B8]/40"
           defaultValue=""
           title="Font Size"
         >
@@ -137,7 +133,6 @@ function CustomRichTextEditor({ value, onChange }) {
         <ToolButton icon={Underline} command="underline" title="Underline" />
         <ToolButton icon={Strikethrough} command="strikeThrough" title="Strikethrough" />
         
-        {/* Clear Formatting Button */}
         <ToolButton icon={Eraser} command="removeFormat" title="Clear Formatting" />
 
         <div className="w-px h-6 bg-[#FFF7F0]/10 mx-1"></div>
@@ -153,7 +148,6 @@ function CustomRichTextEditor({ value, onChange }) {
 
         <div className="w-px h-6 bg-[#FFF7F0]/10 mx-1"></div>
 
-        {/* Text Color Picker */}
         <label 
           className="w-8 h-8 rounded-md flex items-center justify-center text-[#FFF7F0]/70 hover:bg-[#20B2B8]/15 hover:text-[#20B2B8] transition-colors cursor-pointer relative" 
           title="Text Color"
@@ -167,7 +161,6 @@ function CustomRichTextEditor({ value, onChange }) {
           />
         </label>
 
-        {/* Highlight Color Picker */}
         <label 
           className="w-8 h-8 rounded-md flex items-center justify-center text-[#FFF7F0]/70 hover:bg-[#20B2B8]/15 hover:text-[#20B2B8] transition-colors cursor-pointer relative" 
           title="Highlight Color"
@@ -191,8 +184,7 @@ function CustomRichTextEditor({ value, onChange }) {
         onMouseUp={saveSelection}
         onKeyUp={saveSelection}
         suppressContentEditableWarning={true}
-        // ✅ FIXED: Removed 'prose' and used descendant selectors [&_] for proper lists/alignment
-        className="p-4 text-sm text-[#FFF7F0] outline-none min-h-[200px] 
+        className="p-4 text-sm text-[#FFF7F0] outline-none min-h-50 
                    [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-2 
                    [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:my-2 
                    [&_li]:ml-2 [&_li]:my-1
@@ -260,7 +252,6 @@ export default function BlogsCreateForm({ onClose, onSuccess }) {
     setForm((prev) => ({ ...prev, [field]: value }));
   };
 
-  // TAGS HANDLERS
   const handleAddTag = () => {
     const tag = tagInput.trim();
     if (tag && !form.tags.includes(tag)) {
@@ -273,7 +264,6 @@ export default function BlogsCreateForm({ onClose, onSuccess }) {
     setForm((prev) => ({ ...prev, tags: prev.tags.filter((t) => t !== tagToRemove) }));
   };
 
-  // POINTS HANDLERS
   const handlePointChange = (field, value) => {
     setPointInput((prev) => ({ ...prev, [field]: value }));
   };
@@ -298,7 +288,6 @@ export default function BlogsCreateForm({ onClose, onSuccess }) {
     }));
   };
 
-  // IMAGE HANDLER
   const handleImageChange = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -308,15 +297,29 @@ export default function BlogsCreateForm({ onClose, onSuccess }) {
     reader.readAsDataURL(file);
   };
 
-  // SUBMIT HANDLER
+  // ==========================================
+  // ✅ UPDATED SUBMIT HANDLER WITH VALIDATIONS
+  // ==========================================
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
     const plainTextContent = form.content.replace(/<[^>]*>/g, ' ').trim();
 
-    if (!form.title.trim() || !plainTextContent || !form.category) {
-      setError("Title, Content, and Category are required");
+    if (!form.title.trim()) {
+      setError("Title is required.");
+      return;
+    }
+    if (plainTextContent.length < 100) {
+      setError(`Content must be at least 100 characters. Currently: ${plainTextContent.length}`);
+      return;
+    }
+    if (!form.category) {
+      setError("Category is required.");
+      return;
+    }
+    if (!featuredImage) {
+      setError("Featured image is required.");
       return;
     }
 
@@ -332,11 +335,11 @@ export default function BlogsCreateForm({ onClose, onSuccess }) {
       fd.append("tags", JSON.stringify(form.tags));
       fd.append("points", JSON.stringify(form.points));
 
-      if (featuredImage) {
-        fd.append("featuredImage", featuredImage);
-      }
+      // Image is now strictly required and will always be appended
+      fd.append("featuredImage", featuredImage);
 
       const res = await createBlog(fd);
+      
       if (res.success) {
         onSuccess();
       } else {
@@ -424,7 +427,6 @@ export default function BlogsCreateForm({ onClose, onSuccess }) {
                 />
               </Field>
 
-              {/* RICH TEXT EDITOR AREA */}
               <Field label="Content" required hint="Use the toolbar to format text (Minimum 100 characters)">
                 <CustomRichTextEditor
                   value={form.content}
@@ -574,7 +576,8 @@ export default function BlogsCreateForm({ onClose, onSuccess }) {
               )}
             </Section>
 
-            <Section icon={ImagePlus} title="Featured Image" optional>
+            {/* ✅ REMOVED optional PROP FROM HERE */}
+            <Section icon={ImagePlus} title="Featured Image">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {imagePreview ? (
                   <div className="relative aspect-video rounded-xl overflow-hidden border border-[#FFF7F0]/8 group">

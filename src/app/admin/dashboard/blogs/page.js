@@ -13,6 +13,7 @@ import {
   FileText,
   X,
   RefreshCw,
+  AlertTriangle,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getAllBlogs, deleteBlog } from "@/lib/blogs/api";
@@ -35,6 +36,8 @@ export default function AdminBlogsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   
+  const [pageError, setPageError] = useState("");
+  
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [selectedBlog, setSelectedBlog] = useState(null);
@@ -50,6 +53,8 @@ export default function AdminBlogsPage() {
     try {
       if (isRefresh) setRefreshing(true);
       else setLoading(true);
+      
+      setPageError("");
 
       const res = await getAllBlogs({ page, limit, search: searchTerm });
       setBlogs(res.data || []);
@@ -58,6 +63,7 @@ export default function AdminBlogsPage() {
     } catch (error) {
       console.error("Failed to fetch blogs:", error);
       setBlogs([]);
+      setPageError("Failed to load blogs. Please check your connection and try again.");
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -72,7 +78,10 @@ export default function AdminBlogsPage() {
     return () => clearTimeout(delayDebounceFn);
   }, [searchTerm, fetchBlogs]);
 
-  const handleRefresh = () => fetchBlogs(currentPage, true);
+  const handleRefresh = () => {
+    setPageError("");
+    fetchBlogs(currentPage, true);
+  };
 
   const handleRowClick = (blog) => setViewBlogId(blog._id);
 
@@ -89,7 +98,7 @@ export default function AdminBlogsPage() {
       setViewBlogId(null);
     } catch (error) {
       console.error("Failed to delete blog from detail view:", error);
-      alert(error?.message || "Failed to delete blog.");
+      setPageError(error?.message || "Failed to delete blog. It might have been already removed.");
     }
   };
 
@@ -103,8 +112,7 @@ export default function AdminBlogsPage() {
       setBlogs((prev) => prev.filter((b) => b._id !== deleteConfirm._id));
       setDeleteConfirm(null);
     } catch (error) {
-      // Yahan error.message check karna zaroori hai kyunki api.js se error.response.data throw hota hai
-      const errorMsg = error?.message || error?.response?.data?.message || "Failed to delete blog.";
+      const errorMsg = error?.message || error?.response?.data?.message || "Failed to delete blog. Please try again.";
       setDeleteError(errorMsg);
     } finally {
       setDeleting(false);
@@ -143,6 +151,34 @@ export default function AdminBlogsPage() {
           </button>
         </div>
       </div>
+
+      {/* TOP ERROR BANNER */}
+      <AnimatePresence>
+        {pageError && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0, marginBottom: 0 }}
+            animate={{ opacity: 1, height: "auto", marginBottom: 24 }}
+            exit={{ opacity: 0, height: 0, marginBottom: 0 }}
+            className="overflow-hidden"
+          >
+            <div className="flex items-start justify-between gap-4 p-4 rounded-xl bg-amber-500/10 border border-amber-500/20">
+              <div className="flex items-start gap-3">
+                <AlertTriangle size={18} className="text-amber-400 mt-0.5 shrink-0" />
+                <div>
+                  <p className="text-amber-300 text-sm font-semibold">Attention Required</p>
+                  <p className="text-amber-400/80 text-xs mt-1">{pageError}</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setPageError("")}
+                className="text-amber-400/50 hover:text-amber-400 transition-colors"
+              >
+                <X size={16} />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Search */}
       <div className="relative mb-6">
@@ -243,7 +279,7 @@ export default function AdminBlogsPage() {
                             blog.status === "published"
                               ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/20"
                               : blog.status === "draft"
-                              ? "bg-yellow-500/15 text-yellow-300 border border-yellow-500/20"
+                              ? "bg-amber-500/15 text-amber-300 border border-amber-500/20"
                               : "bg-red-500/15 text-red-300 border border-red-500/20"
                           }`}
                         >
@@ -381,9 +417,14 @@ export default function AdminBlogsPage() {
               </p>
 
               {deleteError && (
-                <div className="mb-4 px-3.5 py-2.5 bg-[#D81B60]/10 border border-[#D81B60]/15 rounded-xl">
-                  <p className="text-[#D81B60] text-xs">{deleteError}</p>
-                </div>
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-4 flex items-start gap-2.5 px-3.5 py-2.5 bg-amber-500/10 border border-amber-500/20 rounded-xl"
+                >
+                  <AlertTriangle size={14} className="text-amber-400 mt-0.5 shrink-0" />
+                  <p className="text-amber-300 text-xs">{deleteError}</p>
+                </motion.div>
               )}
 
               <div className="flex items-center gap-3">

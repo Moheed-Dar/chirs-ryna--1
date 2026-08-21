@@ -621,7 +621,7 @@ export default function About() {
                   Since
                 </p>
                 <p className="text-2xl sm:text-3xl font-extrabold leading-none mt-0.5" style={{ color: TEAL }}>
-                  2015
+                  2025
                 </p>
               </motion.div>
 

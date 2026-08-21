@@ -469,7 +469,7 @@
 //   },
 //   {
 //     icon: MessageSquare,
-//     title: "Relocate to Ottawa",
+//     title: "Relocate to Northern Virginia",
 //     desc: "Discover the right neighbourhood to match your lifestyle & goals.",
 //   },
 // ];
@@ -911,7 +911,7 @@ const SERVICES = [
   },
   {
     icon: MessageSquare,
-    title: "Relocate to Ottawa",
+    title: "Relocate to Northern Virginia",
     desc: "Discover the right neighbourhood to match your lifestyle & goals.",
   },
 ];

@@ -211,14 +211,14 @@ export default function Footer() {
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
               <Link
-                href="/contact"
+                href="https://calendar.app.google/zf9eeGFTRRb44AKU6"
                 className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm font-extrabold transition-all duration-300 hover:scale-105 shadow-xl"
                 style={{
                   backgroundColor: "#FFFFFF",
                   color: TEAL,
                 }}
               >
-                Book a Free Consultation
+                Book a Consultation
                 <ArrowUpRight
                   size={18}
                   className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
@@ -259,7 +259,7 @@ export default function Footer() {
               className="text-sm sm:text-base leading-relaxed mb-6 max-w-md"
               style={{ color: `${MINT}CC` }}
             >
-              Helping Ottawa homeowners embrace their next chapter with
+              Helping Northern Virginia homeowners embrace their next chapter with
               thoughtful guidance, local knowledge, and a real estate experience
               built on trust, kindness, and connection.
             </p>
@@ -529,7 +529,7 @@ export default function Footer() {
                 </p>
               </div>
               <h4 className="text-lg sm:text-xl font-extrabold mb-1" style={{ color: "#FFFFFF" }}>
-                Stay Updated with Ottawa Real Estate
+                Stay Updated with Northern Virginia Real Estate
               </h4>
               <p className="text-xs sm:text-sm" style={{ color: `${MINT}B0` }}>
                 Get market insights, new listings, and tips delivered monthly.
