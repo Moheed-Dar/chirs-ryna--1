@@ -430,7 +430,7 @@ export default function PropertyDetailView({
                 </h4>
                 {/* ✅ FIXED: Replaced plain text with dangerouslySetInnerHTML for Rich Text */}
                 <div 
-                  className="text-white/60 text-sm leading-relaxed overflow-hidden break-words
+                  className="text-white/60 text-sm leading-relaxed overflow-hidden wrap-break-word
                              [&_p]:my-2 [&_div]:my-2 
                              [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-2 
                              [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:my-2 

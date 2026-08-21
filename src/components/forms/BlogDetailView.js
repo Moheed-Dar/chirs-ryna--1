@@ -101,7 +101,7 @@ export default function BlogDetailView({ blogId, onClose, onEdit, onDeleted }) {
                 <h3 className="text-sm font-bold text-[#FFF7F0] uppercase tracking-wider mb-2">Content</h3>
                 {/* ✅ FIXED: Replaced plain text with dangerouslySetInnerHTML and added break-words & overflow-hidden */}
                 <div 
-                  className="text-sm text-[#FFF7F0]/70 leading-relaxed bg-[#1F2D3D] p-4 rounded-xl border border-[#FFF7F0]/5 overflow-hidden break-words
+                  className="text-sm text-[#FFF7F0]/70 leading-relaxed bg-[#1F2D3D] p-4 rounded-xl border border-[#FFF7F0]/5 overflow-hidden wrap-break-word
                              [&_p]:my-2 [&_div]:my-2 
                              [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-2 
                              [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:my-2 

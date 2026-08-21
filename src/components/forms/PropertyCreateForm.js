@@ -156,16 +156,16 @@ function CustomRichTextEditor({ value, onChange }) {
   );
 
   return (
-    <div className="bg-[#0f2240] border border-white/[0.08] rounded-xl overflow-hidden focus-within:border-[#2B7FFF]/40 focus-within:ring-2 focus-within:ring-[#2B7FFF]/10 transition-all">
+    <div className="bg-[#0f2240] border border-white/8 rounded-xl overflow-hidden focus-within:border-[#2B7FFF]/40 focus-within:ring-2 focus-within:ring-[#2B7FFF]/10 transition-all">
       {/* Toolbar */}
-      <div className="flex flex-wrap items-center gap-1 p-2 border-b border-white/[0.08] bg-[#081730]">
+      <div className="flex flex-wrap items-center gap-1 p-2 border-b border-white/8 bg-[#081730]">
         <select
           onMouseDown={saveSelection}
           onChange={(e) => {
             applyFormat('fontSize', e.target.value);
             e.target.value = "";
           }}
-          className="bg-[#0f2240] border border-white/[0.08] rounded-md px-2 py-1 text-xs text-white/70 outline-none mr-1 cursor-pointer hover:border-[#2B7FFF]/40"
+          className="bg-[#0f2240] border border-white/8 rounded-md px-2 py-1 text-xs text-white/70 outline-none mr-1 cursor-pointer hover:border-[#2B7FFF]/40"
           defaultValue=""
           title="Font Size"
         >
@@ -231,7 +231,7 @@ function CustomRichTextEditor({ value, onChange }) {
         onMouseUp={saveSelection}
         onKeyUp={saveSelection}
         suppressContentEditableWarning={true}
-        className="p-4 text-sm text-white outline-none min-h-[150px] 
+        className="p-4 text-sm text-white outline-none min-h-37.5 
                    [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-2 
                    [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:my-2 
                    [&_li]:ml-2 [&_li]:my-1
