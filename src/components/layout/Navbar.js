@@ -35,7 +35,7 @@ export default function Navbar() {
                 src="/images/navlogo12.png"
                 alt="Christopher Ryan Properties"
                 fill
-                className="object-contain brightness-0 invert drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+                className="object-contain brightness-125 contrast-150 drop-shadow-[0_0_15px_rgba(255,255,255,0.6)]"
                 sizes="288px"
                 priority
               />
@@ -47,7 +47,7 @@ export default function Navbar() {
                 src="/images/navlogo12.png"
                 alt="Christopher Ryan Properties"
                 fill
-                className="object-contain brightness-0 invert drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"
+                className="object-contain brightness-125 contrast-150 drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]"
                 sizes="160px"
                 priority
               />
@@ -80,7 +80,7 @@ export default function Navbar() {
               href="https://calendar.app.google/zf9eeGFTRRb44AKU6"
               className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg border border-[#FFF7F0]/10 bg-[#FFF7F0]/10 backdrop-blur-sm text-[#FFF7F0] hover:bg-[#20B2B8]/20 hover:border-[#20B2B8]/40 transition-all duration-300"
             >
-              <MessageCircle size={18} className="text-[#20B2B8]" />
+              <MessageCircle size={18} className="text-[#edf3f3]" />
               <span className="text-sm font-medium">Let&apos;s Talk</span>
             </Link>
 

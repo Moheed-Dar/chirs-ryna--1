@@ -404,7 +404,7 @@ export default function Footer() {
                     Serving Area
                   </p>
                   <p className="text-sm font-semibold text-white truncate">
-                    Business Address: Northern Virginia, USA
+                   Northern Virginia, USA
                   </p>
                 </div>
               </div>
