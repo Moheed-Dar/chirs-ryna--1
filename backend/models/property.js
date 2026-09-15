@@ -1,49 +1,60 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const propertySchema = new mongoose.Schema(
   {
     propertyCode: {
       type: String,
-      required: [true, 'Property code is required'],
+      required: [true, "Property code is required"],
       unique: true,
       uppercase: true,
       trim: true,
     },
     title: {
       type: String,
-      required: [true, 'Property title is required'],
+      required: [true, "Property title is required"],
       trim: true,
-      maxlength: [100, 'Title cannot exceed 100 characters'],
+      maxlength: [100, "Title cannot exceed 100 characters"],
     },
     description: {
       type: String,
-      required: [true, 'Property description is required'],
+      required: [true, "Property description is required"],
       trim: true,
-      maxlength: [2000, 'Description cannot exceed 2000 characters'],
+      maxlength: [2000, "Description cannot exceed 2000 characters"],
     },
     price: {
       type: Number,
-      required: [true, 'Price is required'],
-      min: [0, 'Price cannot be negative'],
+      required: [true, "Price is required"],
+      min: [0, "Price cannot be negative"],
     },
     priceType: {
       type: String,
-      enum: ['sale', 'rent'],
-      default: 'sale',
+      enum: ["sale", "rent"],
+      default: "sale",
+    },
+    propertyType: {
+      type: String,
+      enum: [
+        "residential-sale",
+        "residential-lease",
+        "multi-family",
+        "land",
+        "farm",
+      ],
+      required: true,
     },
     currency: {
       type: String,
-      default: 'PKR',
-      enum: ['PKR', 'USD', 'EUR', 'GBP', 'AED'],
+      enum: ["USD"],
+      default: "USD",
     },
     location: {
       type: String,
-      required: [true, 'Location is required'],
+      required: [true, "Location is required"],
       trim: true,
     },
     city: {
       type: String,
-      required: [true, 'City is required'],
+      required: [true, "City is required"],
       trim: true,
     },
     area: {
@@ -60,15 +71,7 @@ const propertySchema = new mongoose.Schema(
     longitude: {
       type: Number,
     },
-    propertyType: {
-      type: String,
-      enum: [
-        'house', 'apartment', 'flat', 'plot', 'commercial',
-        'office', 'shop', 'warehouse', 'villa', 'penthouse',
-        'farmhouse', 'other',
-      ],
-      required: [true, 'Property type is required'],
-    },
+
     bedrooms: {
       type: Number,
       min: 0,
@@ -87,8 +90,8 @@ const propertySchema = new mongoose.Schema(
     },
     areaUnit: {
       type: String,
-      enum: ['sqft', 'sqm', 'marla', 'kanal', 'acre', 'yards'],
-      default: 'sqft',
+      enum: ["sqft", "sqm", "marla", "kanal", "acre", "yards"],
+      default: "sqft",
     },
     floors: {
       type: Number,
@@ -116,19 +119,16 @@ const propertySchema = new mongoose.Schema(
         },
       ],
       default: [],
-      validate: [
-        (val) => val.length <= 10,
-        'Maximum 10 images allowed',
-      ],
+      validate: [(val) => val.length <= 10, "Maximum 10 images allowed"],
     },
     thumbnail: {
       type: String,
-      default: '',
+      default: "",
     },
     status: {
       type: String,
-      enum: ['available', 'sold', 'rented', 'pending', 'draft'],
-      default: 'available',
+      enum: ["available", "sold", "rented", "pending", "draft"],
+      default: "available",
     },
     isFeatured: {
       type: Boolean,
@@ -152,7 +152,7 @@ const propertySchema = new mongoose.Schema(
     },
     addedBy: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
       required: true,
     },
     viewsCount: {
@@ -166,15 +166,15 @@ const propertySchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 // Indexes
-propertySchema.index({ 
-  title: 'text', 
-  description: 'text', 
-  location: 'text', 
-  city: 'text' 
+propertySchema.index({
+  title: "text",
+  description: "text",
+  location: "text",
+  city: "text",
 });
 propertySchema.index({ city: 1, propertyType: 1, priceType: 1 });
 propertySchema.index({ status: 1, isPublished: 1 });
@@ -182,4 +182,5 @@ propertySchema.index({ addedBy: 1 });
 // propertySchema.index({ propertyCode: 1 }, { unique: true });
 
 // ✅ YE LINE ZAROORI HAI - ISKE BINA YE ERROR AYEGA
-export default mongoose.models.Property || mongoose.model('Property', propertySchema);
+export default mongoose.models.Property ||
+  mongoose.model("Property", propertySchema);

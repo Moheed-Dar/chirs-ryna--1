@@ -11,7 +11,11 @@ import {
   ArrowUp,
   MapPin,
   Sparkles,
+  Loader2,
+  CheckCircle2,
+  AlertCircle,
 } from "lucide-react";
+import { subscribe } from "@/lib/subscribers/api"; // ✅ NEW — Subscribe API
 
 // ============================================
 // SAME 3-COLOR SCHEME
@@ -22,7 +26,10 @@ const MINT = "#B1F1E9";
 const DARK = "#072A26";
 
 export default function Footer() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [subscribing, setSubscribing] = useState(false);
+  const [subscribeMsg, setSubscribeMsg] = useState(null); // { type: 'success' | 'error', text }
   const [isVisible, setIsVisible] = useState(false);
   const currentYear = new Date().getFullYear();
 
@@ -33,6 +40,46 @@ export default function Footer() {
   }, []);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  // ============================================
+  // ✅ SUBSCRIBE HANDLER
+  // ============================================
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    setSubscribeMsg(null);
+
+    // ---- Client-side validation ----
+    if (!name.trim() || name.trim().length < 2) {
+      setSubscribeMsg({ type: "error", text: "Please enter your name" });
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      setSubscribeMsg({ type: "error", text: "Please enter a valid email address" });
+      return;
+    }
+
+    setSubscribing(true);
+
+    const res = await subscribe({ name: name.trim(), email: email.trim() });
+
+    if (res.success) {
+      setSubscribeMsg({
+        type: "success",
+        text: res.message || "Successfully subscribed to our newsletter!",
+      });
+      setName("");
+      setEmail("");
+      // Success message 6 sec baad auto-hide
+      setTimeout(() => setSubscribeMsg(null), 6000);
+    } else {
+      setSubscribeMsg({
+        type: "error",
+        text: res.message || "Something went wrong. Please try again.",
+      });
+    }
+
+    setSubscribing(false);
+  };
 
   const footerLinks = {
     company: [
@@ -357,7 +404,7 @@ export default function Footer() {
                     Serving Area
                   </p>
                   <p className="text-sm font-semibold text-white truncate">
-                    Business Address: 20830 Gleedsville Rd. Leesburg, VA 20175
+                    Business Address: Northern Virginia, USA
                   </p>
                 </div>
               </div>
@@ -368,37 +415,6 @@ export default function Footer() {
               <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-3" style={{ color: MINT }}>
                 Follow Along
               </p>
-              {/* <div className="flex items-center gap-2.5">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1"
-                    style={{
-                      backgroundColor: `${MINT}10`,
-                      border: `1px solid ${MINT}20`,
-                      color: MINT,
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = social.hoverColor;
-                      e.currentTarget.style.color = "#FFFFFF";
-                      e.currentTarget.style.borderColor = "transparent";
-                      e.currentTarget.style.boxShadow = `0 6px 16px ${social.hoverColor}60`;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = `${MINT}10`;
-                      e.currentTarget.style.color = MINT;
-                      e.currentTarget.style.borderColor = `${MINT}20`;
-                      e.currentTarget.style.boxShadow = "none";
-                    }}
-                    aria-label={social.name}
-                  >
-                    {social.icon}
-                  </a>
-                ))}
-              </div> */}
             </div>
           </div>
 
@@ -499,9 +515,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ===== SECTION 3: NEWSLETTER CARD (Hidden on Mobile) ===== */}
+        {/* ===== SECTION 3: NEWSLETTER CARD (✅ SUBSCRIBE IMPLEMENTED) ===== */}
         <div
-          className="relative rounded-2xl overflow-hidden mb-12 hidden md:block"
+          className="relative rounded-2xl overflow-hidden mb-12"
           style={{
             backgroundColor: `${MINT}08`,
             border: `1px solid ${MINT}20`,
@@ -536,39 +552,110 @@ export default function Footer() {
               </p>
             </div>
 
-            <div className="w-full md:w-auto md:min-w-95">
-              <div className="relative flex gap-2">
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 rounded-full py-3 pl-5 pr-4 text-sm text-white placeholder-white/40 focus:outline-none transition-all duration-300"
-                  style={{
-                    backgroundColor: `${MINT}10`,
-                    border: `1px solid ${MINT}25`,
-                  }}
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = TEAL;
-                    e.currentTarget.style.boxShadow = `0 0 0 3px ${TEAL}25`;
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor = `${MINT}25`;
-                    e.currentTarget.style.boxShadow = "none";
-                  }}
-                />
-                <button
-                  className="shrink-0 px-5 sm:px-6 rounded-full text-sm font-extrabold text-white transition-all duration-300 hover:scale-105 flex items-center gap-2"
-                  style={{
-                    background: `linear-gradient(135deg, ${TEAL}, ${GREEN})`,
-                    boxShadow: `0 6px 20px ${TEAL}50`,
-                  }}
-                  aria-label="Subscribe"
-                >
-                  Subscribe
-                  <ArrowUpRight size={14} />
-                </button>
-              </div>
+            {/* ✅ SUBSCRIBE FORM — Name + Email */}
+            <div className="w-full md:w-auto md:min-w-105">
+              <form onSubmit={handleSubscribe} className="space-y-2.5">
+                <div className="flex flex-col sm:flex-row gap-2">
+                  {/* Name Input */}
+                  <input
+                    type="text"
+                    placeholder="Your name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    disabled={subscribing}
+                    required
+                    minLength={2}
+                    maxLength={100}
+                    className="flex-1 sm:w-44 rounded-full py-3 px-5 text-sm text-white placeholder-white/40 focus:outline-none transition-all duration-300 disabled:opacity-50"
+                    style={{
+                      backgroundColor: `${MINT}10`,
+                      border: `1px solid ${MINT}25`,
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = TEAL;
+                      e.currentTarget.style.boxShadow = `0 0 0 3px ${TEAL}25`;
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = `${MINT}25`;
+                      e.currentTarget.style.boxShadow = "none";
+                    }}
+                  />
+
+                  {/* Email Input */}
+                  <input
+                    type="email"
+                    placeholder="your@email.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    disabled={subscribing}
+                    required
+                    maxLength={200}
+                    className="flex-1 sm:w-52 rounded-full py-3 px-5 text-sm text-white placeholder-white/40 focus:outline-none transition-all duration-300 disabled:opacity-50"
+                    style={{
+                      backgroundColor: `${MINT}10`,
+                      border: `1px solid ${MINT}25`,
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = TEAL;
+                      e.currentTarget.style.boxShadow = `0 0 0 3px ${TEAL}25`;
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = `${MINT}25`;
+                      e.currentTarget.style.boxShadow = "none";
+                    }}
+                  />
+
+                  {/* Subscribe Button */}
+                  <button
+                    type="submit"
+                    disabled={subscribing}
+                    className="shrink-0 px-5 sm:px-6 py-3 rounded-full text-sm font-extrabold text-white transition-all duration-300 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+                    style={{
+                      background: `linear-gradient(135deg, ${TEAL}, ${GREEN})`,
+                      boxShadow: `0 6px 20px ${TEAL}50`,
+                    }}
+                    aria-label="Subscribe"
+                  >
+                    {subscribing ? (
+                      <>
+                        <Loader2 size={14} className="animate-spin" />
+                        Subscribing...
+                      </>
+                    ) : (
+                      <>
+                        Subscribe
+                        <ArrowUpRight size={14} />
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                {/* ✅ Success / Error Message */}
+                {subscribeMsg && (
+                  <div
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium"
+                    style={{
+                      backgroundColor:
+                        subscribeMsg.type === "success"
+                          ? `${GREEN}15`
+                          : "rgba(239, 68, 68, 0.12)",
+                      border: `1px solid ${
+                        subscribeMsg.type === "success"
+                          ? `${GREEN}40`
+                          : "rgba(239, 68, 68, 0.3)"
+                      }`,
+                      color: subscribeMsg.type === "success" ? GREEN : "#fca5a5",
+                    }}
+                  >
+                    {subscribeMsg.type === "success" ? (
+                      <CheckCircle2 size={13} className="shrink-0" />
+                    ) : (
+                      <AlertCircle size={13} className="shrink-0" />
+                    )}
+                    {subscribeMsg.text}
+                  </div>
+                )}
+              </form>
             </div>
           </div>
         </div>

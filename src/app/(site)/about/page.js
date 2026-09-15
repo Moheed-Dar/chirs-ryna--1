@@ -477,7 +477,7 @@ export default function About() {
                     </svg>
                   </span>
                   <span style={{ color: "#FFFFFF" }}>
-                    20830 Gleedsville Rd. Leesburg, VA 20175
+                    11307 Stuart Mill Rd. Oakton, VA 22124
                   </span>
                 </div>
               </div>
