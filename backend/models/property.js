@@ -19,7 +19,7 @@ const propertySchema = new mongoose.Schema(
       type: String,
       required: [true, "Property description is required"],
       trim: true,
-      maxlength: [2000, "Description cannot exceed 2000 characters"],
+      maxlength: [5000, "Description cannot exceed 2000 characters"],
     },
     price: {
       type: Number,
