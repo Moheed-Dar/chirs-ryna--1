@@ -215,48 +215,48 @@
 //     // ✅ ORDERED RESPONSE
 //     // ==========================================
 //     const propertyObject = property.toObject();
-    
-//     const { 
-//       _id, 
+
+//     const {
+//       _id,
 //       propertyCode,
-//       title: propTitle, 
-//       description: propDesc, 
-//       price: propPrice, 
-//       priceType: propPriceType, 
-//       currency: propCurrency, 
-//       location: propLocation, 
-//       city: propCity, 
-//       area: propArea, 
-//       address: propAddress, 
-//       latitude: propLat, 
-//       longitude: propLng, 
-//       propertyType: propType, 
-//       bedrooms: propBedrooms, 
-//       bathrooms: propBathrooms, 
-//       kitchens: propKitchens, 
-//       areaSize: propAreaSize, 
-//       areaUnit: propAreaUnit, 
-//       floors: propFloors, 
-//       yearBuilt: propYearBuilt, 
-//       features: propFeatures, 
-//       amenities: propAmenities, 
-//       images: propImages, 
-//       thumbnail: propThumbnail, 
-//       isFeatured: propFeatured, 
-//       isPublished: propPublished, 
-//       contactName: propContactName, 
-//       contactPhone: propContactPhone, 
-//       contactEmail: propContactEmail, 
-//       addedBy: propAddedBy, 
-//       createdAt, 
+//       title: propTitle,
+//       description: propDesc,
+//       price: propPrice,
+//       priceType: propPriceType,
+//       currency: propCurrency,
+//       location: propLocation,
+//       city: propCity,
+//       area: propArea,
+//       address: propAddress,
+//       latitude: propLat,
+//       longitude: propLng,
+//       propertyType: propType,
+//       bedrooms: propBedrooms,
+//       bathrooms: propBathrooms,
+//       kitchens: propKitchens,
+//       areaSize: propAreaSize,
+//       areaUnit: propAreaUnit,
+//       floors: propFloors,
+//       yearBuilt: propYearBuilt,
+//       features: propFeatures,
+//       amenities: propAmenities,
+//       images: propImages,
+//       thumbnail: propThumbnail,
+//       isFeatured: propFeatured,
+//       isPublished: propPublished,
+//       contactName: propContactName,
+//       contactPhone: propContactPhone,
+//       contactEmail: propContactEmail,
+//       addedBy: propAddedBy,
+//       createdAt,
 //       updatedAt,
 //       __v,
-//       ...rest 
+//       ...rest
 //     } = propertyObject;
 
 //     const orderedProperty = {
-//       _id,                                    
-//       propertyCode,                           
+//       _id,
+//       propertyCode,
 //       title: propTitle,
 //       description: propDesc,
 //       price: propPrice,
@@ -321,43 +321,18 @@
 
 // export const POST = withAuth(createProperty);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import { NextResponse } from 'next/server';
 // import connectDB from '@/backend/lib/db';
 // import Property from '@/backend/models/property';
 // import { withAdminAuth } from '@/backend/middleware/auth';
 // import { uploadMultipleImages } from '@/backend/lib/cloudinary';
 // import ApiError from '@/backend/utils/apierror';
-// import { 
-//   sanitizeInput, 
-//   validateFiles, 
-//   getSecurityHeaders, 
+// import {
+//   sanitizeInput,
+//   validateFiles,
+//   getSecurityHeaders,
 //   validateRequestSize,
-//   securityLog 
+//   securityLog
 // } from '@/backend/lib/security';
 // import { strictRateLimiter, uploadRateLimiter } from '@/backend/lib/rateLimiter';
 
@@ -369,8 +344,8 @@
 // const MAX_CODE_GENERATION_ATTEMPTS = 3;
 
 // const ALLOWED_PROPERTY_TYPES = [
-//   'house', 'apartment', 'villa', 'penthouse', 
-//   'plot', 'commercial', 'office', 'shop', 
+//   'house', 'apartment', 'villa', 'penthouse',
+//   'plot', 'commercial', 'office', 'shop',
 //   'warehouse', 'farmhouse', 'flat', 'studio'
 // ];
 
@@ -603,7 +578,7 @@
 //   // ✅ VALIDATE REQUIRED FIELDS
 //   // ==========================================
 //   const requiredFields = ['title', 'description', 'price', 'location', 'city', 'propertyType'];
-  
+
 //   requiredFields.forEach(field => {
 //     const error = validators[field]?.(data[field]);
 //     if (error) errors.push(error);
@@ -774,13 +749,13 @@
 //     // ✅ STEP 4: VALIDATE TEXT INPUTS
 //     // ==========================================
 //     const validation = parseAndValidateFormData(formData, user);
-    
+
 //     if (!validation.valid) {
 //       return NextResponse.json(
-//         { 
-//           success: false, 
+//         {
+//           success: false,
 //           message: 'Validation failed',
-//           errors: validation.errors 
+//           errors: validation.errors
 //         },
 //         { status: 400, headers: getSecurityHeaders() }
 //       );
@@ -796,10 +771,10 @@
 
 //     if (!fileValidation.valid) {
 //       return NextResponse.json(
-//         { 
-//           success: false, 
+//         {
+//           success: false,
 //           message: 'Image validation failed',
-//           errors: fileValidation.errors 
+//           errors: fileValidation.errors
 //         },
 //         { status: 400, headers: getSecurityHeaders() }
 //       );
@@ -961,7 +936,7 @@
 //       },
 //     };
 
-//     return NextResponse.json(response, { 
+//     return NextResponse.json(response, {
 //       status: 201,
 //       headers: {
 //         ...getSecurityHeaders(),
@@ -972,7 +947,7 @@
 
 //   } catch (error) {
 //     const duration = Date.now() - startTime;
-    
+
 //     // Security log for errors
 //     securityLog('PROPERTY_CREATE_ERROR', {
 //       requestId,
@@ -1012,7 +987,7 @@
 //       }),
 //     };
 
-//     return NextResponse.json(errorResponse, { 
+//     return NextResponse.json(errorResponse, {
 //       status: statusCode,
 //       headers: {
 //         ...getSecurityHeaders(),
@@ -1062,25 +1037,18 @@
 //   );
 // };
 
-
-
-
-
-
-
-
 // import { NextResponse } from 'next/server';
 // import connectDB from '@/backend/lib/db';
 // import Property from '@/backend/models/property';
 // import { withAdminAuth } from '@/backend/middleware/auth';
 // import { uploadMultipleImages } from '@/backend/lib/cloudinary';
 // import ApiError from '@/backend/utils/apierror';
-// import { 
-//   sanitizeInput, 
-//   validateFiles, 
-//   getSecurityHeaders, 
+// import {
+//   sanitizeInput,
+//   validateFiles,
+//   getSecurityHeaders,
 //   validateRequestSize,
-//   securityLog 
+//   securityLog
 // } from '@/backend/lib/security';
 // import { strictRateLimiter, uploadRateLimiter } from '@/backend/lib/rateLimiter';
 
@@ -1092,8 +1060,8 @@
 // const MAX_CODE_GENERATION_ATTEMPTS = 3;
 
 // const ALLOWED_PROPERTY_TYPES = [
-//   'house', 'apartment', 'villa', 'penthouse', 
-//   'plot', 'commercial', 'office', 'shop', 
+//   'house', 'apartment', 'villa', 'penthouse',
+//   'plot', 'commercial', 'office', 'shop',
 //   'warehouse', 'farmhouse', 'flat', 'studio'
 // ];
 
@@ -1327,7 +1295,7 @@
 
 //   // ✅ VALIDATE REQUIRED FIELDS
 //   const requiredFields = ['title', 'description', 'price', 'location', 'city', 'propertyType'];
-  
+
 //   requiredFields.forEach(field => {
 //     const error = validators[field]?.(data[field]);
 //     if (error) errors.push(error);
@@ -1474,7 +1442,7 @@
 
 //     // STEP 4: Validate text inputs
 //     const validation = parseAndValidateFormData(formData, user);
-    
+
 //     if (!validation.valid) {
 //       return NextResponse.json(
 //         { success: false, message: 'Validation failed', errors: validation.errors },
@@ -1659,7 +1627,7 @@
 //       },
 //     };
 
-//     return NextResponse.json(response, { 
+//     return NextResponse.json(response, {
 //       status: 201,
 //       headers: {
 //         ...getSecurityHeaders(),
@@ -1670,7 +1638,7 @@
 
 //   } catch (error) {
 //     const duration = Date.now() - startTime;
-    
+
 //     securityLog('PROPERTY_CREATE_ERROR', {
 //       requestId,
 //       userId: user._id,
@@ -1703,7 +1671,7 @@
 //       }),
 //     };
 
-//     return NextResponse.json(errorResponse, { 
+//     return NextResponse.json(errorResponse, {
 //       status: statusCode,
 //       headers: { ...getSecurityHeaders(), 'X-Request-Id': requestId }
 //     });
@@ -1747,53 +1715,47 @@
 //   );
 // };
 
-
-
-
-
-
-
-
-
-
-import { NextResponse } from 'next/server';
-import connectDB from '@/backend/lib/db';
-import Property from '@/backend/models/property';
-import { withAdminAuth } from '@/backend/middleware/auth';
-import { uploadMultipleImages } from '@/backend/lib/cloudinary';
-import ApiError from '@/backend/utils/apierror';
-import { 
-  sanitizeInput, 
-  validateFiles, 
-  getSecurityHeaders, 
+import { NextResponse } from "next/server";
+import connectDB from "@/backend/lib/db";
+import Property from "@/backend/models/property";
+import { withAdminAuth } from "@/backend/middleware/auth";
+import { uploadMultipleImages } from "@/backend/lib/cloudinary";
+import ApiError from "@/backend/utils/apierror";
+import {
+  sanitizeInput,
+  validateFiles,
+  getSecurityHeaders,
   validateRequestSize,
-  securityLog 
-} from '@/backend/lib/security';
-import { strictRateLimiter, uploadRateLimiter } from '@/backend/lib/rateLimiter';
+  securityLog,
+} from "@/backend/lib/security";
+import {
+  strictRateLimiter,
+  uploadRateLimiter,
+} from "@/backend/lib/rateLimiter";
 
 // ==========================================
 // ✅ CONSTANTS
 // ==========================================
-const PROPERTY_CODE_PREFIX = 'PROP';
+const PROPERTY_CODE_PREFIX = "PROP";
 const PROPERTY_CODE_LENGTH = 6;
 const MAX_CODE_GENERATION_ATTEMPTS = 3;
 
 // ✅ UPDATED PROPERTY TYPES
 const ALLOWED_PROPERTY_TYPES = [
-  'residential-sale',
-  'residential-lease',
-  'multi-family',
-  'land',
-  'farm'
+  "residential-sale",
+  "residential-lease",
+  "multi-family",
+  "land",
+  "farm",
 ];
 
-const ALLOWED_PRICE_TYPES = ['sale', 'rent'];
+const ALLOWED_PRICE_TYPES = ["sale", "rent"];
 
 // ✅ UPDATED CURRENCY — Only USD
-const ALLOWED_CURRENCIES = ['USD'];
-const DEFAULT_CURRENCY = 'USD';
+const ALLOWED_CURRENCIES = ["USD"];
+const DEFAULT_CURRENCY = "USD";
 
-const ALLOWED_AREA_UNITS = ['sqft', 'sqm', 'marla', 'kanal', 'acre'];
+const ALLOWED_AREA_UNITS = ["sqft", "sqm", "marla", "kanal", "acre", "yards"];
 
 const MAX_IMAGES = 10;
 const MIN_TITLE_LENGTH = 5;
@@ -1809,19 +1771,22 @@ const MAX_PROPERTY_CODE_LENGTH = 30;
 // "Residential Sale" / "residential sale" / "residential_sale" → "residential-sale"
 // ==========================================
 const normalizePropertyType = (value) => {
-  if (!value || typeof value !== 'string') return '';
-  return value.trim().toLowerCase().replace(/[\s_]+/g, '-');
+  if (!value || typeof value !== "string") return "";
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[\s_]+/g, "-");
 };
 
 // ==========================================
 // ✅ UNIQUE PROPERTY CODE GENERATOR (fallback when not provided)
 // ==========================================
 const generatePropertyCode = async () => {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   let attempts = 0;
 
   while (attempts < MAX_CODE_GENERATION_ATTEMPTS) {
-    let code = PROPERTY_CODE_PREFIX + '-';
+    let code = PROPERTY_CODE_PREFIX + "-";
     for (let i = 0; i < PROPERTY_CODE_LENGTH; i++) {
       code += chars.charAt(Math.floor(Math.random() * chars.length));
     }
@@ -1840,117 +1805,130 @@ const generatePropertyCode = async () => {
 // ==========================================
 const validators = {
   title: (value) => {
-    if (!value || typeof value !== 'string') return 'Title is required';
+    if (!value || typeof value !== "string") return "Title is required";
     const trimmed = value.trim();
-    if (trimmed.length < MIN_TITLE_LENGTH) return `Title must be at least ${MIN_TITLE_LENGTH} characters`;
-    if (trimmed.length > MAX_TITLE_LENGTH) return `Title must not exceed ${MAX_TITLE_LENGTH} characters`;
+    if (trimmed.length < MIN_TITLE_LENGTH)
+      return `Title must be at least ${MIN_TITLE_LENGTH} characters`;
+    if (trimmed.length > MAX_TITLE_LENGTH)
+      return `Title must not exceed ${MAX_TITLE_LENGTH} characters`;
     return null;
   },
 
   description: (value) => {
-    if (!value || typeof value !== 'string') return 'Description is required';
+    if (!value || typeof value !== "string") return "Description is required";
     const trimmed = value.trim();
-    if (trimmed.length < MIN_DESCRIPTION_LENGTH) return `Description must be at least ${MIN_DESCRIPTION_LENGTH} characters`;
-    if (trimmed.length > MAX_DESCRIPTION_LENGTH) return `Description must not exceed ${MAX_DESCRIPTION_LENGTH} characters`;
+    if (trimmed.length < MIN_DESCRIPTION_LENGTH)
+      return `Description must be at least ${MIN_DESCRIPTION_LENGTH} characters`;
+    if (trimmed.length > MAX_DESCRIPTION_LENGTH)
+      return `Description must not exceed ${MAX_DESCRIPTION_LENGTH} characters`;
     return null;
   },
 
   price: (value) => {
-    if (!value) return 'Price is required';
+    if (!value) return "Price is required";
     const num = Number(value);
-    if (isNaN(num) || num <= 0) return 'Price must be a positive number';
-    if (num > MAX_PRICE) return 'Price exceeds maximum limit';
+    if (isNaN(num) || num <= 0) return "Price must be a positive number";
+    if (num > MAX_PRICE) return "Price exceeds maximum limit";
     return null;
   },
 
   priceType: (value) => {
     if (!value) return null;
-    if (!ALLOWED_PRICE_TYPES.includes(value)) return `Price type must be one of: ${ALLOWED_PRICE_TYPES.join(', ')}`;
+    if (!ALLOWED_PRICE_TYPES.includes(value))
+      return `Price type must be one of: ${ALLOWED_PRICE_TYPES.join(", ")}`;
     return null;
   },
 
   currency: (value) => {
     if (!value) return null;
-    if (!ALLOWED_CURRENCIES.includes(value.toUpperCase())) return `Currency must be one of: ${ALLOWED_CURRENCIES.join(', ')}`;
+    if (!ALLOWED_CURRENCIES.includes(value.toUpperCase()))
+      return `Currency must be one of: ${ALLOWED_CURRENCIES.join(", ")}`;
     return null;
   },
 
   location: (value) => {
-    if (!value || typeof value !== 'string') return 'Location is required';
-    if (value.trim().length < 2) return 'Location is too short';
-    if (value.trim().length > 200) return 'Location is too long';
+    if (!value || typeof value !== "string") return "Location is required";
+    if (value.trim().length < 2) return "Location is too short";
+    if (value.trim().length > 200) return "Location is too long";
     return null;
   },
 
   city: (value) => {
-    if (!value || typeof value !== 'string') return 'City is required';
-    if (value.trim().length < 2) return 'City is too short';
-    if (value.trim().length > 100) return 'City is too long';
+    if (!value || typeof value !== "string") return "City is required";
+    if (value.trim().length < 2) return "City is too short";
+    if (value.trim().length > 100) return "City is too long";
     return null;
   },
 
   propertyType: (value) => {
-    if (!value || typeof value !== 'string') return 'Property type is required';
+    if (!value || typeof value !== "string") return "Property type is required";
     const normalized = normalizePropertyType(value);
     if (!ALLOWED_PROPERTY_TYPES.includes(normalized)) {
-      return `Property type must be one of: ${ALLOWED_PROPERTY_TYPES.join(', ')}`;
+      return `Property type must be one of: ${ALLOWED_PROPERTY_TYPES.join(", ")}`;
     }
     return null;
   },
 
   propertyCode: (value) => {
-    if (!value || typeof value !== 'string') return null; // Optional — will be auto-generated
+    if (!value || typeof value !== "string") return null; // Optional — will be auto-generated
     const trimmed = value.trim();
     if (trimmed.length === 0) return null; // Empty = auto-generate
-    if (trimmed.length > MAX_PROPERTY_CODE_LENGTH) return `Property code must not exceed ${MAX_PROPERTY_CODE_LENGTH} characters`;
+    if (trimmed.length > MAX_PROPERTY_CODE_LENGTH)
+      return `Property code must not exceed ${MAX_PROPERTY_CODE_LENGTH} characters`;
     // Only allow alphanumeric, hyphens, underscores
-    if (!/^[A-Za-z0-9\-_]+$/.test(trimmed)) return 'Property code can only contain letters, numbers, hyphens, and underscores';
+    if (!/^[A-Za-z0-9\-_]+$/.test(trimmed))
+      return "Property code can only contain letters, numbers, hyphens, and underscores";
     return null;
   },
 
   bedrooms: (value) => {
     if (!value && value !== 0) return null;
     const num = Number(value);
-    if (isNaN(num) || num < 0 || !Number.isInteger(num)) return 'Bedrooms must be a non-negative integer';
-    if (num > 50) return 'Bedrooms value seems unrealistic';
+    if (isNaN(num) || num < 0 || !Number.isInteger(num))
+      return "Bedrooms must be a non-negative integer";
+    if (num > 50) return "Bedrooms value seems unrealistic";
     return null;
   },
 
   bathrooms: (value) => {
     if (!value && value !== 0) return null;
     const num = Number(value);
-    if (isNaN(num) || num < 0 || !Number.isInteger(num)) return 'Bathrooms must be a non-negative integer';
-    if (num > 50) return 'Bathrooms value seems unrealistic';
+    if (isNaN(num) || num < 0 || !Number.isInteger(num))
+      return "Bathrooms must be a non-negative integer";
+    if (num > 50) return "Bathrooms value seems unrealistic";
     return null;
   },
 
   kitchens: (value) => {
     if (!value && value !== 0) return null;
     const num = Number(value);
-    if (isNaN(num) || num < 0 || !Number.isInteger(num)) return 'Kitchens must be a non-negative integer';
-    if (num > 20) return 'Kitchens value seems unrealistic';
+    if (isNaN(num) || num < 0 || !Number.isInteger(num))
+      return "Kitchens must be a non-negative integer";
+    if (num > 20) return "Kitchens value seems unrealistic";
     return null;
   },
 
   areaSize: (value) => {
     if (!value && value !== 0) return null;
     const num = Number(value);
-    if (isNaN(num) || num < 0) return 'Area size must be a non-negative number';
-    if (num > 1000000) return 'Area size seems unrealistic';
+    if (isNaN(num) || num < 0) return "Area size must be a non-negative number";
+    if (num > 1000000) return "Area size seems unrealistic";
     return null;
   },
 
   areaUnit: (value) => {
     if (!value) return null;
-    if (!ALLOWED_AREA_UNITS.includes(value)) return `Area unit must be one of: ${ALLOWED_AREA_UNITS.join(', ')}`;
+    if (!ALLOWED_AREA_UNITS.includes(value))
+      return `Area unit must be one of: ${ALLOWED_AREA_UNITS.join(", ")}`;
     return null;
   },
 
   floors: (value) => {
     if (!value && value !== 0) return null;
     const num = Number(value);
-    if (isNaN(num) || num < 0 || !Number.isInteger(num)) return 'Floors must be a non-negative integer';
-    if (num > 200) return 'Floors value seems unrealistic';
+    if (isNaN(num) || num < 0 || !Number.isInteger(num))
+      return "Floors must be a non-negative integer";
+    if (num > 200) return "Floors value seems unrealistic";
     return null;
   },
 
@@ -1967,28 +1945,30 @@ const validators = {
   latitude: (value) => {
     if (!value) return null;
     const num = Number(value);
-    if (isNaN(num) || num < -MAX_COORDINATE || num > MAX_COORDINATE) return 'Invalid latitude value';
+    if (isNaN(num) || num < -MAX_COORDINATE || num > MAX_COORDINATE)
+      return "Invalid latitude value";
     return null;
   },
 
   longitude: (value) => {
     if (!value) return null;
     const num = Number(value);
-    if (isNaN(num) || num < -MAX_COORDINATE || num > MAX_COORDINATE) return 'Invalid longitude value';
+    if (isNaN(num) || num < -MAX_COORDINATE || num > MAX_COORDINATE)
+      return "Invalid longitude value";
     return null;
   },
 
   email: (value) => {
     if (!value) return null;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(value)) return 'Invalid email format';
+    if (!emailRegex.test(value)) return "Invalid email format";
     return null;
   },
 
   phone: (value) => {
     if (!value) return null;
     const phoneRegex = /^[\+]?[\d\s\-\(\)]{7,15}$/;
-    if (!phoneRegex.test(value)) return 'Invalid phone number format';
+    if (!phoneRegex.test(value)) return "Invalid phone number format";
     return null;
   },
 };
@@ -2001,51 +1981,93 @@ const parseAndValidateFormData = (formData, user) => {
   const data = {};
 
   const fields = [
-    'title', 'description', 'price', 'priceType', 'currency',
-    'location', 'city', 'area', 'address', 'latitude', 'longitude',
-    'propertyType', 'propertyCode', 'bedrooms', 'bathrooms', 'kitchens',
-    'areaSize', 'areaUnit', 'floors', 'yearBuilt',
-    'isFeatured', 'isPublished',
-    'contactName', 'contactPhone', 'contactEmail',
-    'features', 'amenities'
+    "title",
+    "description",
+    "price",
+    "priceType",
+    "currency",
+    "location",
+    "city",
+    "area",
+    "address",
+    "latitude",
+    "longitude",
+    "propertyType",
+    "propertyCode",
+    "bedrooms",
+    "bathrooms",
+    "kitchens",
+    "areaSize",
+    "areaUnit",
+    "floors",
+    "yearBuilt",
+    "isFeatured",
+    "isPublished",
+    "contactName",
+    "contactPhone",
+    "contactEmail",
+    "features",
+    "amenities",
   ];
 
-  fields.forEach(field => {
+  fields.forEach((field) => {
     data[field] = formData.get(field);
   });
 
   // Set defaults
-  data.priceType = data.priceType || 'sale';
+  data.priceType = data.priceType || "sale";
   data.currency = data.currency || DEFAULT_CURRENCY; // ✅ Default: USD
-  data.areaUnit = data.areaUnit || 'sqft';
+  data.areaUnit = data.areaUnit || "sqft";
   data.bedrooms = data.bedrooms || 0;
   data.bathrooms = data.bathrooms || 0;
   data.kitchens = data.kitchens || 0;
   data.areaSize = data.areaSize || 0;
   data.floors = data.floors || 0;
-  data.isFeatured = data.isFeatured === 'true';
-  data.isPublished = data.isPublished !== 'false';
+  data.isFeatured = data.isFeatured === "true";
+  data.isPublished = data.isPublished !== "false";
   data.contactName = data.contactName || user.name;
-  data.contactPhone = data.contactPhone || user.phone || '';
+  data.contactPhone = data.contactPhone || user.phone || "";
   data.contactEmail = data.contactEmail || user.email;
 
   // ✅ VALIDATE REQUIRED FIELDS
-  const requiredFields = ['title', 'description', 'price', 'location', 'city', 'propertyType'];
-  
-  requiredFields.forEach(field => {
+  const requiredFields = [
+    "title",
+    "description",
+    "price",
+    "location",
+    "city",
+    "propertyType",
+  ];
+
+  requiredFields.forEach((field) => {
     const error = validators[field]?.(data[field]);
     if (error) errors.push(error);
   });
 
   // ✅ VALIDATE OPTIONAL FIELDS (if provided)
   const optionalFields = [
-    'priceType', 'currency', 'propertyCode', 'bedrooms', 'bathrooms', 'kitchens',
-    'areaSize', 'areaUnit', 'floors', 'yearBuilt', 'latitude', 'longitude',
-    'contactEmail', 'contactPhone'
+    "priceType",
+    "currency",
+    "propertyCode",
+    "bedrooms",
+    "bathrooms",
+    "kitchens",
+    "areaSize",
+    "areaUnit",
+    "floors",
+    "yearBuilt",
+    "latitude",
+    "longitude",
+    "contactEmail",
+    "contactPhone",
   ];
 
-  optionalFields.forEach(field => {
-    if (data[field] !== null && data[field] !== undefined && data[field] !== '') {
+  optionalFields.forEach((field) => {
+    if (
+      data[field] !== null &&
+      data[field] !== undefined &&
+      data[field] !== ""
+    ) {
       const error = validators[field]?.(data[field]);
       if (error) errors.push(error);
     }
@@ -2059,10 +2081,12 @@ const parseAndValidateFormData = (formData, user) => {
     try {
       const parsed = JSON.parse(data.features);
       if (Array.isArray(parsed)) {
-        features = parsed.map(f => String(f).trim()).filter(f => f.length > 0 && f.length <= 50);
+        features = parsed
+          .map((f) => String(f).trim())
+          .filter((f) => f.length > 0 && f.length <= 50);
       }
     } catch (e) {
-      errors.push('Invalid features format. Expected JSON array.');
+      errors.push("Invalid features format. Expected JSON array.");
     }
   }
 
@@ -2070,20 +2094,22 @@ const parseAndValidateFormData = (formData, user) => {
     try {
       const parsed = JSON.parse(data.amenities);
       if (Array.isArray(parsed)) {
-        amenities = parsed.map(a => String(a).trim()).filter(a => a.length > 0 && a.length <= 50);
+        amenities = parsed
+          .map((a) => String(a).trim())
+          .filter((a) => a.length > 0 && a.length <= 50);
       }
     } catch (e) {
-      errors.push('Invalid amenities format. Expected JSON array.');
+      errors.push("Invalid amenities format. Expected JSON array.");
     }
   }
 
   if (features.length > 50) {
-    errors.push('Maximum 50 features allowed');
+    errors.push("Maximum 50 features allowed");
     features = features.slice(0, 50);
   }
 
   if (amenities.length > 50) {
-    errors.push('Maximum 50 amenities allowed');
+    errors.push("Maximum 50 amenities allowed");
     amenities = amenities.slice(0, 50);
   }
 
@@ -2094,7 +2120,7 @@ const parseAndValidateFormData = (formData, user) => {
       ...data,
       features,
       amenities,
-    }
+    },
   };
 };
 
@@ -2104,19 +2130,23 @@ const parseAndValidateFormData = (formData, user) => {
 const extractImages = (formData) => {
   let imageFiles = [];
 
-  imageFiles = formData.getAll('images').filter(
-    (file) => file instanceof File && file.size > 0
-  );
+  imageFiles = formData
+    .getAll("images")
+    .filter((file) => file instanceof File && file.size > 0);
 
   if (imageFiles.length === 0) {
-    imageFiles = formData.getAll('images').filter(
-      (file) => file instanceof Blob && file.size > 0
-    );
+    imageFiles = formData
+      .getAll("images")
+      .filter((file) => file instanceof Blob && file.size > 0);
   }
 
   if (imageFiles.length === 0) {
     for (const [key, value] of formData.entries()) {
-      if (key.toLowerCase().includes('image') && value instanceof Blob && value.size > 0) {
+      if (
+        key.toLowerCase().includes("image") &&
+        value instanceof Blob &&
+        value.size > 0
+      ) {
         imageFiles.push(value);
       }
     }
@@ -2138,7 +2168,9 @@ const extractImages = (formData) => {
 // ==========================================
 const createProperty = async (request, context, user) => {
   const startTime = Date.now();
-  const requestId = crypto.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  const requestId =
+    crypto.randomUUID?.() ||
+    `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 
   try {
     // STEP 1: Request size validation
@@ -2146,7 +2178,7 @@ const createProperty = async (request, context, user) => {
     if (!sizeCheck.valid) {
       return NextResponse.json(
         { success: false, message: sizeCheck.error },
-        { status: 413, headers: getSecurityHeaders() }
+        { status: 413, headers: getSecurityHeaders() },
       );
     }
 
@@ -2157,32 +2189,40 @@ const createProperty = async (request, context, user) => {
     try {
       formData = await request.formData();
     } catch (error) {
-      securityLog('INVALID_FORM_DATA', { requestId, userId: user._id, error: error.message });
+      securityLog("INVALID_FORM_DATA", {
+        requestId,
+        userId: user._id,
+        error: error.message,
+      });
       return NextResponse.json(
-        { success: false, message: 'Invalid form data' },
-        { status: 400, headers: getSecurityHeaders() }
+        { success: false, message: "Invalid form data" },
+        { status: 400, headers: getSecurityHeaders() },
       );
     }
 
     // STEP 3: Rate limit
     const uploadRateCheck = uploadRateLimiter(request);
     if (!uploadRateCheck.allowed) {
-      securityLog('UPLOAD_RATE_LIMITED', { requestId, userId: user._id });
+      securityLog("UPLOAD_RATE_LIMITED", { requestId, userId: user._id });
       const response = NextResponse.json(
         { success: false, message: uploadRateCheck.message },
-        { status: 429, headers: getSecurityHeaders() }
+        { status: 429, headers: getSecurityHeaders() },
       );
-      response.headers.set('Retry-After', String(uploadRateCheck.retryAfter));
+      response.headers.set("Retry-After", String(uploadRateCheck.retryAfter));
       return response;
     }
 
     // STEP 4: Validate text inputs
     const validation = parseAndValidateFormData(formData, user);
-    
+
     if (!validation.valid) {
       return NextResponse.json(
-        { success: false, message: 'Validation failed', errors: validation.errors },
-        { status: 400, headers: getSecurityHeaders() }
+        {
+          success: false,
+          message: "Validation failed",
+          errors: validation.errors,
+        },
+        { status: 400, headers: getSecurityHeaders() },
       );
     }
 
@@ -2194,8 +2234,12 @@ const createProperty = async (request, context, user) => {
 
     if (!fileValidation.valid) {
       return NextResponse.json(
-        { success: false, message: 'Image validation failed', errors: fileValidation.errors },
-        { status: 400, headers: getSecurityHeaders() }
+        {
+          success: false,
+          message: "Image validation failed",
+          errors: fileValidation.errors,
+        },
+        { status: 400, headers: getSecurityHeaders() },
       );
     }
 
@@ -2208,8 +2252,8 @@ const createProperty = async (request, context, user) => {
       currency: sanitizeInput(data.currency).toUpperCase(), // ✅ Always USD
       location: sanitizeInput(data.location),
       city: sanitizeInput(data.city),
-      area: sanitizeInput(data.area || ''),
-      address: sanitizeInput(data.address || ''),
+      area: sanitizeInput(data.area || ""),
+      address: sanitizeInput(data.address || ""),
       latitude: data.latitude ? Number(data.latitude) : null,
       longitude: data.longitude ? Number(data.longitude) : null,
       propertyType: normalizePropertyType(sanitizeInput(data.propertyType)), // ✅ Normalized
@@ -2233,33 +2277,45 @@ const createProperty = async (request, context, user) => {
     // STEP 7: Upload images to Cloudinary
     let uploadedImages = [];
     try {
-      uploadedImages = await uploadMultipleImages(imageFiles, 'properties', {
+      uploadedImages = await uploadMultipleImages(imageFiles, "properties", {
         maxWidth: 1920,
         maxHeight: 1080,
         quality: 80,
       });
     } catch (error) {
-      console.error('Cloudinary Upload Error:', error);
-      securityLog('IMAGE_UPLOAD_FAILED', { requestId, userId: user._id, error: error.message });
+      console.error("Cloudinary Upload Error:", error);
+      securityLog("IMAGE_UPLOAD_FAILED", {
+        requestId,
+        userId: user._id,
+        error: error.message,
+      });
       return NextResponse.json(
-        { success: false, message: 'Failed to upload images. Please try again.' },
-        { status: 500, headers: getSecurityHeaders() }
+        {
+          success: false,
+          message: "Failed to upload images. Please try again.",
+        },
+        { status: 500, headers: getSecurityHeaders() },
       );
     }
 
-    const thumbnail = uploadedImages.length > 0 ? uploadedImages[0].url : '';
+    const thumbnail = uploadedImages.length > 0 ? uploadedImages[0].url : "";
 
     // STEP 8: ✅ PROPERTY CODE — use user-provided or auto-generate
-    let finalPropertyCode = '';
-    const userProvidedCode = data.propertyCode?.toString().trim() || '';
+    let finalPropertyCode = "";
+    const userProvidedCode = data.propertyCode?.toString().trim() || "";
 
     if (userProvidedCode) {
       // Check if user-provided code is unique
-      const codeExists = await Property.findOne({ propertyCode: userProvidedCode }).lean();
+      const codeExists = await Property.findOne({
+        propertyCode: userProvidedCode,
+      }).lean();
       if (codeExists) {
         return NextResponse.json(
-          { success: false, message: `Property code "${userProvidedCode}" is already taken. Please use a different code.` },
-          { status: 409, headers: getSecurityHeaders() }
+          {
+            success: false,
+            message: `Property code "${userProvidedCode}" is already taken. Please use a different code.`,
+          },
+          { status: 409, headers: getSecurityHeaders() },
         );
       }
       finalPropertyCode = userProvidedCode;
@@ -2285,8 +2341,11 @@ const createProperty = async (request, context, user) => {
         // If it was user-provided, tell them. If auto-generated, retry once.
         if (userProvidedCode) {
           return NextResponse.json(
-            { success: false, message: `Property code "${userProvidedCode}" is already taken. Please use a different code.` },
-            { status: 409, headers: getSecurityHeaders() }
+            {
+              success: false,
+              message: `Property code "${userProvidedCode}" is already taken. Please use a different code.`,
+            },
+            { status: 409, headers: getSecurityHeaders() },
           );
         }
         // Retry with new auto-generated code
@@ -2297,15 +2356,15 @@ const createProperty = async (request, context, user) => {
       }
     }
 
-    await property.populate('addedBy', 'name email phone avatar');
+    await property.populate("addedBy", "name email phone avatar");
 
     // STEP 10: Security log
-    securityLog('PROPERTY_CREATED', {
+    securityLog("PROPERTY_CREATED", {
       requestId,
       userId: user._id,
       propertyId: property._id,
       propertyCode: property.propertyCode,
-      codeSource: userProvidedCode ? 'manual' : 'auto',
+      codeSource: userProvidedCode ? "manual" : "auto",
       imageCount: uploadedImages.length,
       duration: Date.now() - startTime,
     });
@@ -2315,7 +2374,7 @@ const createProperty = async (request, context, user) => {
 
     const response = {
       success: true,
-      message: 'Property created successfully',
+      message: "Property created successfully",
       data: {
         _id: propertyObject._id,
         propertyCode: propertyObject.propertyCode,
@@ -2363,53 +2422,60 @@ const createProperty = async (request, context, user) => {
       },
     };
 
-    return NextResponse.json(response, { 
+    return NextResponse.json(response, {
       status: 201,
       headers: {
         ...getSecurityHeaders(),
-        'X-Request-Id': requestId,
-        'X-Response-Time': `${Date.now() - startTime}ms`,
-      }
+        "X-Request-Id": requestId,
+        "X-Response-Time": `${Date.now() - startTime}ms`,
+      },
     });
-
   } catch (error) {
     const duration = Date.now() - startTime;
-    
-    securityLog('PROPERTY_CREATE_ERROR', {
+
+    securityLog("PROPERTY_CREATE_ERROR", {
       requestId,
       userId: user._id,
       error: error.message,
-      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined,
+      stack: process.env.NODE_ENV === "development" ? error.stack : undefined,
       duration,
     });
 
     let statusCode = 500;
-    let message = 'Internal Server Error';
+    let message = "Internal Server Error";
 
     if (error instanceof ApiError) {
       statusCode = error.statusCode;
       message = error.message;
-    } else if (error.name === 'MongoError' || error.name === 'MongoServerError') {
+    } else if (
+      error.name === "MongoError" ||
+      error.name === "MongoServerError"
+    ) {
       if (error.code === 11000) {
         statusCode = 409;
-        message = 'Duplicate entry detected';
+        message = "Duplicate entry detected";
       }
-    } else if (error.name === 'ValidationError') {
+    } else if (error.name === "ValidationError") {
       statusCode = 400;
-      message = 'Data validation failed';
+      message = "Data validation failed";
+      // ✅ Actual field-level errors add karo
+      validationErrors = Object.values(error.errors).map((e) => ({
+        field: e.path,
+        message: e.message,
+      }));
     }
 
     const errorResponse = {
       success: false,
       message,
-      ...(process.env.NODE_ENV === 'development' && {
-        error: { name: error.name, message: error.message, stack: error.stack }
+      ...(process.env.NODE_ENV === "development" && {
+        error: { name: error.name, message: error.message, stack: error.stack },
       }),
     };
 
-    return NextResponse.json(errorResponse, { 
+    return NextResponse.json(errorResponse, {
       status: statusCode,
-      headers: { ...getSecurityHeaders(), 'X-Request-Id': requestId }
+      headers: { ...getSecurityHeaders(), "X-Request-Id": requestId },
     });
   }
 };
@@ -2420,33 +2486,34 @@ const createProperty = async (request, context, user) => {
 export const POST = withAdminAuth(createProperty, {
   windowMs: 15 * 60 * 1000,
   maxRequests: 20,
-  message: 'Property creation limit reached. Please try again after 15 minutes.',
+  message:
+    "Property creation limit reached. Please try again after 15 minutes.",
 });
 
 export const GET = () => {
   return NextResponse.json(
-    { success: false, message: 'Method not allowed' },
-    { status: 405, headers: getSecurityHeaders() }
+    { success: false, message: "Method not allowed" },
+    { status: 405, headers: getSecurityHeaders() },
   );
 };
 
 export const PUT = () => {
   return NextResponse.json(
-    { success: false, message: 'Method not allowed' },
-    { status: 405, headers: getSecurityHeaders() }
+    { success: false, message: "Method not allowed" },
+    { status: 405, headers: getSecurityHeaders() },
   );
 };
 
 export const DELETE = () => {
   return NextResponse.json(
-    { success: false, message: 'Method not allowed' },
-    { status: 405, headers: getSecurityHeaders() }
+    { success: false, message: "Method not allowed" },
+    { status: 405, headers: getSecurityHeaders() },
   );
 };
 
 export const PATCH = () => {
   return NextResponse.json(
-    { success: false, message: 'Method not allowed' },
-    { status: 405, headers: getSecurityHeaders() }
+    { success: false, message: "Method not allowed" },
+    { status: 405, headers: getSecurityHeaders() },
   );
 };
