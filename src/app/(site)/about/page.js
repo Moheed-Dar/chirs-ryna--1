@@ -379,7 +379,7 @@ export default function About() {
               <div className="flex flex-col gap-3 sm:gap-4 font-medium text-xs sm:text-sm md:text-base">
                 {/* Email - Separate Line */}
                 <a
-                  href="mailto:chris@margenau.com"
+                  href="mailto:chris@chrostopherryanrealty.com"
                   className="hover:scale-105 transition-all flex items-center gap-2 group"
                   style={{ color: "#FFFFFF" }}
                 >
@@ -406,7 +406,7 @@ export default function About() {
                     </svg>
                   </span>
                   <span className="truncate group-hover:underline" style={{ color: "#FFFFFF" }}>
-                    chris@margenau.com
+                    chris@chrostopherryanrealty.com
                   </span>
                 </a>
 

@@ -504,7 +504,7 @@ export default function PropertiesPage() {
               {property.title}
             </h3>
 
-            {property.propertyCode && (
+            {/* {property.propertyCode && (
               <div className="mb-3">
                 <span
                   className="inline-flex items-center px-2 py-0.5 text-[11px] font-mono font-bold rounded-md"
@@ -517,7 +517,7 @@ export default function PropertiesPage() {
                   {property.propertyCode}
                 </span>
               </div>
-            )}
+            )} */}
 
             <div className="flex items-center gap-1.5 text-sm mb-4" style={{ color: CREAM_70 }}>
               <MapPin size={13} style={{ color: `${TEAL}70` }} className="shrink-0" />

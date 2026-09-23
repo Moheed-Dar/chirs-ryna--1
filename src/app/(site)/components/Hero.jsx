@@ -225,7 +225,7 @@ export default function HeroSection() {
               />
               {getStatusText(property.status)}
             </span>
-            {property.propertyCode && (
+            {/* {property.propertyCode && (
               <span
                 className="rounded-md px-1.5 py-0.5 font-mono text-[9px] font-bold"
                 style={{
@@ -235,7 +235,7 @@ export default function HeroSection() {
               >
                 {property.propertyCode}
               </span>
-            )}
+            )} */}
           </div>
         </div>
       </Link>

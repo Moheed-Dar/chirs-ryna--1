@@ -378,7 +378,7 @@ export default function Footer() {
                     Email Me
                   </p>
                   <p className="text-sm font-semibold text-white truncate">
-                    chris@margenau.com
+                    chris@chrostopherryanrealty.com
                   </p>
                 </div>
               </a>
