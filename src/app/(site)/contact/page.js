@@ -676,7 +676,7 @@
 //               <div className="flex items-center gap-2 px-3 py-2 bg-[#D81B60]/15 rounded-lg border border-[#D81B60]/20">
 //                 <Phone size={12} className="text-[#D81B60]/80" />
 //                 <span className="text-xs font-semibold text-[#D81B60]">
-//                   (202) 848-4567
+//                   (571) 210-1933
 //                 </span>
 //               </div>
 //             </div>
@@ -1125,7 +1125,7 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center gap-2 px-3 py-2 rounded-lg" style={{ backgroundColor: `${BRIGHT_CYAN}15`, border: `1px solid ${BRIGHT_CYAN}20` }}>
                 <Phone size={12} style={{ color: `${BRIGHT_CYAN}80` }} />
-                <span className="text-xs font-semibold" style={{ color: BRIGHT_CYAN }}>(202) 848-4567</span>
+                <span className="text-xs font-semibold" style={{ color: BRIGHT_CYAN }}>(571) 210-1933</span>
               </div>
             </div>
           </div>

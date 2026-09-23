@@ -314,7 +314,7 @@ export default function Footer() {
             {/* Contact Mini Cards */}
             <div className="space-y-3 mb-6">
               <a
-                href="tel:(202) 848-4567"
+                href="tel:(571) 210-1933"
                 className="group flex items-center gap-3 p-3 rounded-xl transition-all duration-300 hover:-translate-x-1"
                 style={{
                   backgroundColor: `${MINT}08`,
@@ -343,7 +343,7 @@ export default function Footer() {
                     Call Anytime
                   </p>
                   <p className="text-sm font-semibold text-white truncate">
-                    (202) 848-4567
+                    (571) 210-1933
                   </p>
                 </div>
               </a>

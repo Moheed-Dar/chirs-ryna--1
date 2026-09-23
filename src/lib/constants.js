@@ -14,8 +14,8 @@ export const NAV_LINKS = {
 };
 
 export const CONTACT_INFO = {
-   phone: "(202) 848-4567",
-  phoneHref: "tel:(202) 848-4567",
+   phone: "(571) 210-1933",
+  phoneHref: "tel:(571) 210-1933",
   email: "Christopher Ryan@Christopher RyanConsultant.ca",
   emailHref: "Christopher Ryan@Christopher RyanConsultant.ca",
 };
