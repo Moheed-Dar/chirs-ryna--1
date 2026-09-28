@@ -349,7 +349,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="mailto:ChristopherRyan@ChristopherRyanConsultant.ca"
+                href="mailto:chris@christopherryanrealty.com"
                 className="group flex items-center gap-3 p-3 rounded-xl transition-all duration-300 hover:-translate-x-1"
                 style={{
                   backgroundColor: `${MINT}08`,
@@ -378,7 +378,7 @@ export default function Footer() {
                     Email Me
                   </p>
                   <p className="text-sm font-semibold text-white truncate">
-                    chris@chrostopherryanrealty.com
+                    chris@christopherryanrealty.com
                   </p>
                 </div>
               </a>
