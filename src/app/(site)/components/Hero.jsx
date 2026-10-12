@@ -452,9 +452,6 @@ export default function HeroSection() {
                     className="h-2 w-2 animate-pulse rounded-full"
                     style={{ backgroundColor: GREEN }}
                   />
-                  <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-[0.15em]">
-                    250+ New Listings
-                  </span>
                 </div>
 
                 {/* Building icon */}
@@ -584,9 +581,6 @@ export default function HeroSection() {
                   className="h-2 w-2 animate-pulse rounded-full"
                   style={{ backgroundColor: GREEN }}
                 />
-                <span className="text-[9px] md:text-[10px] font-extrabold uppercase tracking-[0.15em]">
-                  250+ New Listings
-                </span>
               </div>
 
               {/* Building icon */}
