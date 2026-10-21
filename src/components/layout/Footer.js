@@ -274,7 +274,7 @@ export default function Footer() {
                   border: `1px solid ${MINT}40`,
                 }}
               >
-                Browse Properties there
+                Browse Properties
               </Link>
             </div>
           </div>
