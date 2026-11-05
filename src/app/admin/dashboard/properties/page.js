@@ -313,6 +313,10 @@ export default function AdminPropertiesPage() {
                     <th className="px-4 py-3.5 text-left text-[10px] font-bold text-white/30 uppercase tracking-wider">
                       Status
                     </th>
+                    {/* ✅ PUBLISHED COLUMN */}
+                    <th className="px-4 py-3.5 text-center text-[10px] font-bold text-white/30 uppercase tracking-wider">
+                      Published
+                    </th>
                     <th className="px-4 py-3.5 text-center text-[10px] font-bold text-white/30 uppercase tracking-wider">
                       Featured
                     </th>
@@ -328,7 +332,6 @@ export default function AdminPropertiesPage() {
                     return (
                       <tr
                         key={property._id}
-                        /* ✅ CLICKABLE ROW */
                         onClick={() => handleRowClick(property)}
                         className="hover:bg-white/3 transition-colors group cursor-pointer"
                       >
@@ -394,6 +397,14 @@ export default function AdminPropertiesPage() {
                           </span>
                         </td>
 
+                        {/* ✅ PUBLISHED CELL — Always "Yes" for now */}
+                        <td className="px-4 py-3.5 text-center">
+                          <span className="inline-flex items-center gap-1.5 text-emerald-300 text-xs font-semibold">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                            Yes
+                          </span>
+                        </td>
+
                         <td className="px-4 py-3.5 text-center">
                           {property.isFeatured ? (
                             <span className="inline-flex items-center gap-1 text-[#2B7FFF] text-xs font-semibold">
@@ -410,7 +421,6 @@ export default function AdminPropertiesPage() {
                         <td className="px-4 py-3.5 text-right">
                           <div className="flex items-center justify-end gap-1.5">
                             <button
-                              /* ✅ STOP PROPAGATION — don't open detail */
                               onClick={(e) => {
                                 e.stopPropagation();
                                 setSelectedProperty(property);
@@ -422,7 +432,6 @@ export default function AdminPropertiesPage() {
                               <Edit size={15} />
                             </button>
                             <button
-                              /* ✅ STOP PROPAGATION — don't open detail */
                               onClick={(e) => {
                                 e.stopPropagation();
                                 setDeleteConfirm(property);
